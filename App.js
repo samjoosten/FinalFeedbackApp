@@ -10,6 +10,7 @@ import HomeScreen from './screens/HomeScreen'
 import Templates from './components/Templates'
 import TemplatesConfig from './components/appconfiguration/TemplatesConfig'
 
+console.disableYellowBox = true;
 const AppNavigator = createStackNavigator(
     {
         Launch: {

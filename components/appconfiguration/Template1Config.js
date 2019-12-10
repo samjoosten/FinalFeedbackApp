@@ -53,12 +53,12 @@ export default class Template1Config extends Component {
                 template: 'Template1',
                 logoURL: this.props.logo,
                 password: this.props.password,
-                featureConfig: "",
-                starQuestion: ""
+                featureConfig: '',
+                starQuestion: ''
             })
         })
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
+            .then(res => console.log(JSON.stringify(res)))
+            .catch(err => console.log(JSON.stringify(err)));
         this.props.navigation.navigate('Launch');
 
     }

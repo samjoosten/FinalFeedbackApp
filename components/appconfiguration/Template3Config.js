@@ -100,8 +100,8 @@ export default class Template3Config extends Component {
                     starQuestion: questionConfig[key]
                 })
             })
-                .then(res => console.log(res))
-                .catch(err => console.log(err))
+                .then(res => console.log(JSON.stringify(res)))
+                .catch(err => console.log(JSON.stringify(err)))
         })
         this.props.navigation.navigate('Launch')
 

@@ -50,7 +50,6 @@ export default class HomeScreen extends Component {
     }
 
     componentDidMount() {
-        console.log(Constants.url);
         //change password to your local db password
         fetch(Constants.url + 'get/apps')
             .then((response) => response.json())

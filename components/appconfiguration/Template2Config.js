@@ -99,8 +99,8 @@ export default class Template2Config extends Component {
                     starQuestion: ""
                 })
             })
-                .then(res => console.log(res))
-                .catch(err => console.log(err))
+                .then(res => console.log(JSON.stringify(res)))
+                .catch(err => console.log(JSON.stringify(err)))
         })
 
         this.props.navigation.navigate('Launch')

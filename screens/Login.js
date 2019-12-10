@@ -58,7 +58,7 @@ export default class Login extends Component {
                 }
             })
             .catch((error) => {
-                console.error(error);
+                console.error(JSON.stringify(error));
             });
     }
 

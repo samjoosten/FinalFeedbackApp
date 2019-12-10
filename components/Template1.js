@@ -91,8 +91,8 @@ class Template1 extends Component {
 
                     })
                 })
-                    .then(res => console.log(res))
-                    .catch(err => console.log(err));
+                    .then(res => console.log(JSON.stringify(res)))
+                    .catch(err => console.log(JSON.stringify(err)));
                 this.setState({ text: '' });
                 this.props.navigation.navigate('Home');
                 // if (Platform.OS === "android") {
