@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Text,
     View,
@@ -30,7 +30,7 @@ export default class Template3Config extends Component {
         };
         this.questionMap = {};
         this.basicQuestions = ['Click on text to change it', 'Swipe left or right to change the template', 'Your survey will look like this', 'How did you like the app?'];
-        this.stars= [1,2,3,4,5];
+        this.stars = [1, 2, 3, 4, 5];
         this.addQuestionButton = this.addQuestionButton.bind(this);
 
         this.confirm = this.confirm.bind(this);
@@ -46,7 +46,7 @@ export default class Template3Config extends Component {
         starMap[index] = {
             star: rating
         };
-        this.setState({starCount: starMap})
+        this.setState({ starCount: starMap })
 
     }
 
@@ -72,14 +72,14 @@ export default class Template3Config extends Component {
         const MINIMUMQUESTIONAMOUNT = 4;
 
         //undefined is not an object evaluating quesionConfig[i]
-        for(i = 0; i<MINIMUMQUESTIONAMOUNT; i++){
-            if(!questionConfig[i] || questionConfig[i] === ''){
+        for (i = 0; i < MINIMUMQUESTIONAMOUNT; i++) {
+            if (!questionConfig[i] || questionConfig[i] === '') {
                 alert('The first 4 questions must be filled in');
                 return;
             }
         }
-        for(i = MINIMUMQUESTIONAMOUNT; i< Object.keys(questionConfig).length ; i++){
-            if(questionConfig[i] === ''){
+        for (i = MINIMUMQUESTIONAMOUNT; i < Object.keys(questionConfig).length; i++) {
+            if (questionConfig[i] === '') {
                 delete questionConfig[i]
 
             }
@@ -109,34 +109,34 @@ export default class Template3Config extends Component {
 
 
     addBugReport(text) {
-        this.setState({feedback: text})
+        this.setState({ feedback: text })
     }
 
     renderListFooter = () => {
         return (
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <TouchableHighlight style={styles.addButton} onPress={this.addQuestionButton}>
-                    <Text style={{fontSize: 40, color: 'white'}}>+</Text>
+                    <Text style={{ fontSize: 40, color: 'white' }}>+</Text>
                 </TouchableHighlight>
             </View>
         )
     }
 
 
-    renderItem = ({item, index}) => {
+    renderItem = ({ item, index }) => {
         return (
-            <View style={{margin: 5}}>
+            <View style={{ margin: 5 }}>
                 <TextInput style={styles.txtInput}
-                           placeholder= {!this.basicQuestions[index] ?  'Insert your question' : this.basicQuestions[index]  }
-                           value= {this.state.questionConfig[index]}
-                           placeholderTextColor="#C3C3C3"
-                           multiline= {true}
-                           onChangeText={(text) => this.inputChangeHandler(text, index)}/>
-                <StarRating starStyle={{color: 'orange'}}
-                            disabled={true}
-                            maxStars={5}
-                            rating={this.stars[index%5]}
-                            selectedStar={(rating) => this.onStarPressed(rating, index)}/>
+                    placeholder={!this.basicQuestions[index] ? 'Insert your question' : this.basicQuestions[index]}
+                    value={this.state.questionConfig[index]}
+                    placeholderTextColor="#C3C3C3"
+                    multiline={true}
+                    onChangeText={(text) => this.inputChangeHandler(text, index)} />
+                <StarRating starStyle={{ color: 'orange' }}
+                    disabled={true}
+                    maxStars={5}
+                    rating={this.stars[index % 5]}
+                    selectedStar={(rating) => this.onStarPressed(rating, index)} />
             </View>
         )
     }
@@ -144,17 +144,17 @@ export default class Template3Config extends Component {
     render() {
         return (
             <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-                <View style={{flex: 4}}>
+                <View style={{ flex: 4 }}>
                     <FlatList numOfColumns={1}
-                              horizontal={false}
-                              contentContainerStyle={styles.list}
-                              data={this.state.configData}
-                              extractData={this.state}
-                              ListFooterComponent={this.renderListFooter}
-                              renderItem={this.renderItem}/>
+                        horizontal={false}
+                        contentContainerStyle={styles.list}
+                        data={this.state.configData}
+                        extractData={this.state}
+                        ListFooterComponent={this.renderListFooter}
+                        renderItem={this.renderItem} />
                 </View>
-                <BugReportCheckBox textChange={(text) => this.addBugReport(text)}/>
-                <Button title="Confirm" onPress={this.confirm}/>
+                <BugReportCheckBox textChange={(text) => this.addBugReport(text)} />
+                <Button title="Confirm" onPress={this.confirm} />
             </KeyboardAvoidingView>
 
         )

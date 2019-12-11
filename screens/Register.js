@@ -1,26 +1,13 @@
 import React, { Component } from 'react';
-//import ImagePickerButton from './ImagePickerButton';
 import {
-    Alert,
     Button,
     TextInput,
     View,
     StyleSheet,
-    KeyboardAvoidingView,
     Dimensions,
-    TouchableHighlight,
     Text,
-    TouchableOpacity, FlatList, Image
+    Image
 } from 'react-native';
-import Constants from '../Constants';
-import Carousel from 'react-native-looped-carousel'
-
-const image = 'https://www.w3schools.com/w3css/img_lights.jpg';
-const happy = 'https://knowledge.wharton.upenn.edu/wp-content/uploads/2016/01/compassion.jpg';
-const stars = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJLI1WKlFWlzI7kp0ia7fU-lYuRh96guVK27T7NiuOn_KF8bnSqQ&s';
-const bubbly = 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/i9ZqFExK5zA0/v0/1000x-1.jpg'
-const textFields = ['1', '2', '3', '4'];
-
 
 export default class Register extends Component {
     static navigationOptions = ({ navigation }) => {
@@ -61,10 +48,11 @@ export default class Register extends Component {
 
         const { appName, logoURL, template, password, password2, configCount, starConfig } = this.state;
 
-        if(appName === ''){
+        if (appName === '') {
             alert("App Name cannot be empty");
             return;
         }
+
         //compare passwords
         else if (password !== password2) {
             alert("Passwords are not the same");
@@ -79,68 +67,55 @@ export default class Register extends Component {
             return;
         }
 
-
         this.props.navigation.navigate('TemplateConfig', {
             appName: appName,
             logoURL: logoURL,
             password: password
         })
-
-
-
     }
 
 
     render() {
         return (
-
             <View style={styles.container}>
                 <Text style={{ fontSize: 36, color: 'white', textAlign: 'center' }}>Register an App</Text>
-                <View style={{ flexDirection: 'row'}}>
-
+                <View style={{ flexDirection: 'row' }}>
                     <View style={styles.top}>
                         <View style={{ marginLeft: 20, flexDirection: 'column' }}>
-                            <Text style= {styles.text}>App Name:</Text>
+                            <Text style={styles.text}>App Name:</Text>
                             <TextInput placeholder="Type a name..."
-                                       style={styles.input}
-                                       onChangeText={(text) => this.setState({ appName: text })} />
+                                style={styles.input}
+                                onChangeText={(text) => this.setState({ appName: text })} />
                         </View>
                         <View style={{ marginLeft: 20, flexDirection: 'column' }}>
-                            <Text style= {styles.text}>Image URL: </Text>
+                            <Text style={styles.text}>Image URL: </Text>
                             <TextInput placeholder="Type the url..."
-                                       style={styles.input}
-                                       onChangeText={(text) => this.setState({ logoURL: text })} />
+                                style={styles.input}
+                                onChangeText={(text) => this.setState({ logoURL: text })} />
                         </View>
                     </View>
                     <View>
                         <Image source={{ uri: this.state.logoURL }} style={styles.imageicon} />
                     </View>
-
                 </View>
-
                 <View style={{ flexDirection: 'column', justifyContent: 'space-between', padding: 20 }}>
-                    <View style = {{flexDirection: 'column'}}>
-                        <Text style= {styles.text}>Create a password:</Text>
+                    <View style={{ flexDirection: 'column' }}>
+                        <Text style={styles.text}>Create a password:</Text>
                         <TextInput placeholder="Enter a Password"
-                                   secureTextEntry={true}
-                                   style={styles.input2}
-                                   onChangeText={(text) => this.setState({ password: text })} />
+                            secureTextEntry={true}
+                            style={styles.input2}
+                            onChangeText={(text) => this.setState({ password: text })} />
                     </View>
-                    <Text style= {styles.text}>Repeat Password:</Text>
+                    <Text style={styles.text}>Repeat Password:</Text>
                     <TextInput placeholder="Reytpe password..."
-                               secureTextEntry={true}
-                               style={styles.input2}
-                               onChangeText={(text) => this.setState({ password2: text })} />
+                        secureTextEntry={true}
+                        style={styles.input2}
+                        onChangeText={(text) => this.setState({ password2: text })} />
                 </View>
-
-
                 <View>
-
-                    <View style={{ width: Dimensions.get('window').width, height: 100,  alignContent: 'center', alignItems: 'center' }}>
-                        <Button onPress={this.onRegister.bind(this)} style = {styles.button}
-                                title= "Submit and Configure"/>
-
-
+                    <View style={{ width: Dimensions.get('window').width, height: 100, alignContent: 'center', alignItems: 'center' }}>
+                        <Button onPress={this.onRegister.bind(this)} style={styles.button}
+                            title="Submit and Configure" />
                     </View>
                 </View>
             </View>
@@ -157,9 +132,7 @@ const styles = StyleSheet.create({
     container: {
         height: Dimensions.get('window').height,
         flexDirection: 'column',
-
         backgroundColor: '#313131',
-
     },
 
     top: {
@@ -188,14 +161,12 @@ const styles = StyleSheet.create({
         width: Dimensions.get('window').width - 40,
         height: Dimensions.get('window').width / 3.6,
         borderRadius: 15,
-
     },
     templates: {
 
     },
     text: {
         color: 'white',
-
     },
     input: {
         width: 160,

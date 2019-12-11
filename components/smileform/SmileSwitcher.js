@@ -32,29 +32,29 @@ export default class SmileSwitcher extends Component {
     //swaps between the smiley screens when pressed
     swapSmiley() {
         this.setState({
-            smileyVisible : !this.state.smileyVisible
+            smileyVisible: !this.state.smileyVisible
         });
     }
 
     render() {
-        if(this.state.smileyVisible){
-            return(
+        if (this.state.smileyVisible) {
+            return (
 
-                <TouchableOpacity style={{flex: 1}} onPress={this.swapSmiley}>
+                <TouchableOpacity style={{ flex: 1 }} onPress={this.swapSmiley}>
                     <Smile50
                         smile={this.props.smile}
                         setSmiley={this.props.setSmiley}
                     />
-                    <View style = {{flexDirection: 'row', justifyContent: 'space-between', marginLeft:20 , marginRight: 20}}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginLeft: 20, marginRight: 20 }}>
 
-                        <Text style = {{color: 'white'}}>Bad</Text>
-                        <Text style = {{color: 'white'}}>Good</Text>
+                        <Text style={{ color: 'white' }}>Bad</Text>
+                        <Text style={{ color: 'white' }}>Good</Text>
                     </View>
                 </TouchableOpacity>
             );
-        }else{
+        } else {
             return (
-                <View style={{flex: 1}}>
+                <View style={{ flex: 1 }}>
                     <SmilePopup
                         smileyVisible={this.state.smileyVisible}
                         swapSmiley={this.swapSmiley}

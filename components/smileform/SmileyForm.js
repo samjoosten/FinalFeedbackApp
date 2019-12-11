@@ -15,7 +15,7 @@ export default class Smile50 extends Component {
     }
 
     //on slide change
-    getVal(val){
+    getVal(val) {
         this.props.setSmiley(val)
     }
 
@@ -32,7 +32,7 @@ export default class Smile50 extends Component {
                     minimumValue={1}
                     maximumValue={10}
                     value={this.props.smile}
-                    onValueChange={ smile => this.getVal(smile)}
+                    onValueChange={smile => this.getVal(smile)}
                 />
             </View>
         );

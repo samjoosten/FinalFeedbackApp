@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Text,
     Image,
@@ -42,10 +42,10 @@ class Templates extends Component {
                     data: responseJson
                 })
                 this.props.navigation.setParams({ app: this.state.data[0].app })
-                this.props.navigation.setParams({ name: this.state.data[0].appName})
+                this.props.navigation.setParams({ name: this.state.data[0].appName })
             }).catch((error) => {
-                return(
-                    <Error/>
+                return (
+                    <Error />
                 )
             })
 
@@ -55,8 +55,8 @@ class Templates extends Component {
     render() {
         if (!this.state.data) {
             return (
-                <View style={{flex: 1, backgroundColor: '#313131', alignItems: 'center', justifyContent: 'center'}}>
-                    <ActivityIndicator size="large" color="#3498db"/>
+                <View style={{ flex: 1, backgroundColor: '#313131', alignItems: 'center', justifyContent: 'center' }}>
+                    <ActivityIndicator size="large" color="#3498db" />
                 </View>
             )
         }
@@ -64,12 +64,12 @@ class Templates extends Component {
         var appConfig = this.state.data;
         // load the right template based on the template property from the app
         switch (appConfig[0].template) {
-            case "Template1" :
-                return <Template1 config={appConfig} appName={appConfig[0].appName} navigation={this.props.navigation}/>;
-            case "Template2" :
-                return <Template2 config={appConfig} appName={appConfig[0].appName} navigation={this.props.navigation}/>;
-            case "Template3" :
-                return <Template3 config={appConfig} appName={appConfig[0].appName} navigation={this.props.navigation}/>;
+            case "Template1":
+                return <Template1 config={appConfig} appName={appConfig[0].appName} navigation={this.props.navigation} />;
+            case "Template2":
+                return <Template2 config={appConfig} appName={appConfig[0].appName} navigation={this.props.navigation} />;
+            case "Template3":
+                return <Template3 config={appConfig} appName={appConfig[0].appName} navigation={this.props.navigation} />;
         }
     }
 }
