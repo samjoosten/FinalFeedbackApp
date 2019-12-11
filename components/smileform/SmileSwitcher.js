@@ -1,3 +1,15 @@
+/*
+
+Made by Tim Terwijn,
+
+When a user opens template 1 he sees this smile switcher.
+
+This class is responsible for swapping between the default 
+smiley component and the smilepopup where you can select a
+smiley instead of swiping for one.
+
+*/
+
 import React, { Component } from 'react';
 import {
     View,
@@ -17,7 +29,7 @@ export default class SmileSwitcher extends Component {
         this.swapSmiley = this.swapSmiley.bind(this);
     }
 
-    //swaps between the smiley screens
+    //swaps between the smiley screens when pressed
     swapSmiley() {
         this.setState({
             smileyVisible : !this.state.smileyVisible

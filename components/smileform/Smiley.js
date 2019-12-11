@@ -1,3 +1,13 @@
+/*
+
+Made by Sam Joosten,
+
+This component shows a smiley face.
+
+The happieness of the smiley can be changed with the propety userInput.
+
+*/
+
 import React, { Component } from 'react';
 import {
     StyleSheet,
