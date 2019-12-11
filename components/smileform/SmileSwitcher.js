@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import {
     View,
     TouchableOpacity,
-    Text,
-    Dimensions
+    Text
 } from 'react-native';
 
 import SmilePopup from './SmilePopup'
@@ -16,7 +15,6 @@ export default class SmileSwitcher extends Component {
             smileyVisible: true
         }
         this.swapSmiley = this.swapSmiley.bind(this);
-        //this.setSmiley = this.setSmiley.bind(this);
     }
 
     //swaps between the smiley screens
