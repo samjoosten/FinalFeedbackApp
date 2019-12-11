@@ -36,7 +36,7 @@ export default class Login extends Component {
   onLogin() {
     //check name and password
 
-    this.props.navigation.navigate("DashboarbDomain");
+    this.props.navigation.navigate("DashboardDomain");
 
     // const account = {
     //     name: this.state.name,
