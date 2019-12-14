@@ -47,7 +47,10 @@ const AppNavigator = createStackNavigator({
   },
   FeedbackDetails: {
     screen: FeedbackDetailsScreen,
-    path: "screens/FeedbackDetailsScreen"
+    path: "screens/FeedbackDetailsScreen",
+    navigationOptions: {
+      header: null
+    }
   }
 });
 

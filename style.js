@@ -37,6 +37,9 @@ export default StyleSheet.create({
     paddingBottom: 15
   },
   mt15: {
+    marginTop: 15
+  },
+  mt55: {
     marginTop: 55
   },
   mtb25: {
