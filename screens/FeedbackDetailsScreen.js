@@ -24,15 +24,21 @@ class FeedbackDetailsScreen extends React.Component {
     const appName = feedback.map((item, index) => {
       return item.app;
     });
-    const question = feedback.map((item, index) => {
-      return item.questions.question3.question !== ""
-        ? item.questions.question3.question
-        : "";
+    const template = feedback.map((item, index) => {
+      return item.template;
+    });
+    const question3 = feedback.map((item, index) => {
+      if (item.template === "Template3") {
+        return item.questions.question3.question;
+      } else {
+        return null;
+      }
     });
     return (
       <View>
         <Text>{appName}</Text>
-        <Text>{question}</Text>
+        <Text>{template}</Text>
+        <Text>{question3}</Text>
       </View>
     );
   }
