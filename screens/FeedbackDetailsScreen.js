@@ -65,6 +65,7 @@ class FeedbackDetailsScreen extends React.Component {
         return null;
       }
     });
+    console.log("qLength: " + question0.toString().length);
     const star0 = feedback.map((item, index) => {
       if (item.template === "Template3") {
         return item.questions.question0.stars;
@@ -165,7 +166,7 @@ class FeedbackDetailsScreen extends React.Component {
               </View>
             </View>
             <View>
-              {question0 !== null ? (
+              {question0.toString().length > 0 ? (
                 <View style={styles.panel}>
                   <Text style={[styles.text_white]}>
                     See feedback questions
