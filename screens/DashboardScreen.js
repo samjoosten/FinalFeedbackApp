@@ -174,7 +174,7 @@ class DashboardScreen extends Component {
             </View>
             </IndicatorViewPager>
             <IndicatorViewPager
-              style={{ height: 575 }}
+              style={{ height: 560 }}
               indicator={this._renderOSCatTitleIndicator()}>
             <View style={styles.panel_Dashboard}>
               <Text style={[styles.text_white, styles.text_bold, styles.ptb10]}>
