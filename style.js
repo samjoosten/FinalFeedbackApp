@@ -13,6 +13,7 @@ export default StyleSheet.create({
     marginVertical: 10
   },
   text_white: {
+    fontSize: 20,
     color: "#fff"
   },
   text_white_opacity: {
