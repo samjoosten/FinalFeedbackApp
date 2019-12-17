@@ -29,7 +29,7 @@ export default class App extends React.Component {
       {
         key: "questions",
         title: "Questions",
-        icon: "format-text-rotation-none",
+        icon: "comment-question-outline",
         color: "#181f2d"
       }
     ]
