@@ -65,7 +65,6 @@ class FeedbackDetailsScreen extends React.Component {
         return null;
       }
     });
-    console.log("qLength: " + question0.toString().length);
     const star0 = feedback.map((item, index) => {
       if (item.template === "Template3") {
         return item.questions.question0.stars;
@@ -103,7 +102,7 @@ class FeedbackDetailsScreen extends React.Component {
     });
     return (
       <View style={styles.container}>
-        {Platform.OS !== "ios" ? <StatusBarAdjust /> : <View />}
+        <StatusBarAdjust />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={[styles.mlr20, styles.pt5, styles.pb15]}>
             <View style={styles.ptb10}>
