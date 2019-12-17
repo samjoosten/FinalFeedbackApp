@@ -16,6 +16,11 @@ import PieChartWithClickSlices from './../components/PieChartWithClickSlices';
 
 const apiHost = ajax.getApiHost() + "/get";
 
+/*
+Dashboard screen showing the charts in Carousel Views, implementing refresh control, 
+contains methods to fetch from REST server and passes the callback as props to the charts
+*/
+
 class DashboardScreen extends Component {
   state = {
     feedbacksPerYear: [],
@@ -169,7 +174,7 @@ class DashboardScreen extends Component {
             </View>
             </IndicatorViewPager>
             <IndicatorViewPager
-              style={{ height: 550 }}
+              style={{ height: 575 }}
               indicator={this._renderOSCatTitleIndicator()}>
             <View style={styles.panel_Dashboard}>
               <Text style={[styles.text_white, styles.text_bold, styles.ptb10]}>
