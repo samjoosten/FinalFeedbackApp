@@ -5,8 +5,11 @@ import {
   View,
   StyleSheet,
   KeyboardAvoidingView,
-  Text
+  Text,
+  Dimensions
 } from "react-native";
+
+let scr = Dimensions.get('window').width;
 
 export default class Login extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -105,7 +108,7 @@ export default class Login extends Component {
               style={[styles.button, { padding: 0 }]}
               onPress={() => this.props.navigation.navigate("Register")}
             >
-              <Text style={styles.btnText}>Create Account</Text>
+              <Text style={styles.btnText}>Create{"\n"}Account</Text>
             </TouchableHighlight>
           </View>
         </View>
@@ -122,22 +125,23 @@ const styles = StyleSheet.create({
     backgroundColor: "#313131"
   },
   row: {
-    width: 200,
+    width: 300,
     flexDirection: "row",
     justifyContent: "space-between"
   },
   input: {
     backgroundColor: "white",
-    width: 200,
-    height: 44,
+    width: scr*0.75,
+    height: 52,
     padding: 10,
     borderWidth: 1,
     borderColor: "black",
+    fontSize: 16,
     marginBottom: 10
   },
   button: {
-    width: 97,
-    height: 44,
+    width: scr*0.35,
+    height: 52,
     padding: 10,
     borderWidth: 1,
     borderColor: "black",
@@ -147,7 +151,8 @@ const styles = StyleSheet.create({
   },
   btnText: {
     textAlign: "center",
-    fontSize: 16,
+    textAlignVertical: "center",
+    fontSize: 18,
     color: "white"
   }
 });
