@@ -5,6 +5,7 @@ import {
   FlatList,
   Platform,
   TouchableOpacity,
+  TouchableHighlight,
   Image,
   RefreshControl,
   Picker
