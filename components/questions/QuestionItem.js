@@ -17,12 +17,12 @@ class QuestionItem extends React.Component {
       <View>
         <DataTable>
             <DataTable.Row>
-              <DataTable.Cell style={{flex: 11}}>
+              <DataTable.Cell style={{flex: 4}}>
                 {feedback.question}
               </DataTable.Cell>
               <DataTable.Cell
                 style={{flex: 1, justifyContent: 'flex-end'}}>
-                {feedback.avg}
+                {feedback.avg}/5
               </DataTable.Cell>
             </DataTable.Row>
         </DataTable>
