@@ -8,22 +8,6 @@ import {
 import PropTypes from 'prop-types';
 import Smiley from './Smiley';
 
-import * as scale from 'd3-scale';
-const d3 = {
-    scale
-};
-var points = [
-    [1,1],
-    [25,10]
-];
-
-var multiLine = d3.scale.scaleLinear()
-    .domain(
-        points.map(function(p){return p[0];})
-    )
-    .range (
-        points.map(function(p){return p[1];})
-    );
 export default class Smile50 extends Component {
     constructor() {
         super();
@@ -31,7 +15,7 @@ export default class Smile50 extends Component {
     }
 
     //on slide change
-    getVal(val){
+    getVal(val) {
         this.props.setSmiley(val)
     }
 
@@ -48,7 +32,7 @@ export default class Smile50 extends Component {
                     minimumValue={1}
                     maximumValue={10}
                     value={this.props.smile}
-                    onValueChange={ smile => this.getVal(smile)}
+                    onValueChange={smile => this.getVal(smile)}
                 />
             </View>
         );

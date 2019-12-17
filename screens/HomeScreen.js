@@ -1,8 +1,8 @@
-import React, {Component} from "react";
-import {Animated, Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View, ActivityIndicator} from "react-native";
+import React, { Component } from "react";
+import { Animated, Dimensions, FlatList, Image, StyleSheet, Text, TouchableOpacity, View, ActivityIndicator } from "react-native";
 import Constants from "../Constants";
 import Error from "../components/errorhandling/Error"
-import {SearchBar} from "react-native-elements";
+import { SearchBar } from "react-native-elements";
 
 // what is 2.8?
 const ROW_HEIGHT = Dimensions.get('window').width / 2.5;
@@ -64,10 +64,10 @@ export default class HomeScreen extends Component {
                     }
                 )
             }).catch((error) => {
-            return(
-                <Error/>
-            )
-        })
+                return (
+                    <Error />
+                )
+            })
     }
 
     //renderItem makes sure that every icon in the flatlist on the homescreen gets rendered. In this method we use
@@ -100,15 +100,15 @@ export default class HomeScreen extends Component {
                 },
             ]}>
                 <TouchableOpacity style={styles.shadow} activeOpacity={.7}
-                                  onPress={() => this.props.navigation.navigate('Details', {
-                                      appId: item.id,
-                                      name: item.appName,
-                                      app: item,
-                                      logo: item.logoURL
-                                  })}>
+                    onPress={() => this.props.navigation.navigate('Details', {
+                        appId: item.id,
+                        name: item.appName,
+                        app: item,
+                        logo: item.logoURL
+                    })}>
                     <Image style={styles.logoicons} source={{ uri: item.logoURL }} />
                 </TouchableOpacity>
-                <Text style={{marginBottom: 5, alignSelf: 'center', color: 'white'}}>{item.appName}</Text>
+                <Text style={{ marginBottom: 5, alignSelf: 'center', color: 'white' }}>{item.appName}</Text>
             </Animated.View>
         );
     }
@@ -123,8 +123,8 @@ export default class HomeScreen extends Component {
 
         if (!this.state.dataSource) {
             return (
-                <View style={{flex: 1, backgroundColor: '#313131', alignItems: 'center', justifyContent: 'center'}}>
-                    <ActivityIndicator size="large" color="#3498db"/>
+                <View style={{ flex: 1, backgroundColor: '#313131', alignItems: 'center', justifyContent: 'center' }}>
+                    <ActivityIndicator size="large" color="#3498db" />
                 </View>
             )
         }
@@ -142,7 +142,7 @@ export default class HomeScreen extends Component {
                     />
                 </View>
 
-                <View style={{flex: 3}}>
+                <View style={{ flex: 3 }}>
                     <FlatList
                         numColumns={2}
                         horizontal={false}

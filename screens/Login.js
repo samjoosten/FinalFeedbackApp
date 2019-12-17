@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import {
-  Alert,
-  Button,
   TouchableHighlight,
   TextInput,
   View,
   StyleSheet,
   KeyboardAvoidingView,
-  TouchableOpacity,
   Text
 } from "react-native";
-import Constants from "../Constants";
 
 export default class Login extends Component {
   static navigationOptions = ({ navigation }) => {

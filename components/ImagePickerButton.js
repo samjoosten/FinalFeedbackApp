@@ -32,7 +32,7 @@ export default class ImagePickerButton extends Component {
         }
     }
 
-    imagePickerHandler = async() => {
+    imagePickerHandler = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
             mediaTypes: ImagePicker.MediaTypeOptions.All,
             allowsEditing: true,
@@ -51,8 +51,8 @@ export default class ImagePickerButton extends Component {
         const style = this.props.style;
         return (
             <TouchableHighlight style={[styles.button, style]}
-                                onPress={this.imagePickerHandler}
-                                underlayColor="#74b9ff">
+                onPress={this.imagePickerHandler}
+                underlayColor="#74b9ff">
                 <Text style={styles.btnText}>Choose Photo</Text>
             </TouchableHighlight>
         );

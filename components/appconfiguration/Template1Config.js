@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Text,
     View,
@@ -9,7 +9,7 @@ import {
     Platform, Button
 } from 'react-native';
 import PropTypes from 'prop-types'
-import {Ionicons} from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import RNPickerSelect from 'react-native-picker-select';
 import FeedbackPicker from '../FeedbackPicker'
 import SmileSwitcher from '../smileform/SmileSwitcher';
@@ -33,7 +33,7 @@ export default class Template1Config extends Component {
     //Toast messages show up when the user has succesfully sent feedback for an app.
     //This method works with OS Android only
     showToast = () => {
-        if(Platform.OS === 'android'){
+        if (Platform.OS === 'android') {
             ToastAndroid.showWithGravityAndOffset(
                 "Your feedback has been sent!",
                 ToastAndroid.LONG,
@@ -63,43 +63,43 @@ export default class Template1Config extends Component {
 
     }
 
-    setImage(source){
+    setImage(source) {
         this.setState({
             image: source
         });
     }
 
     //update smiley var from components
-    setSmiley(userInput){
+    setSmiley(userInput) {
         this.setState({
             smile: userInput
         });
     }
     render() {
-        const imageText = <Ionicons style={styles.imageIcon} name="paperclip" size={25}/>;
+        const imageText = <Ionicons style={styles.imageIcon} name="paperclip" size={25} />;
 
         return (
             <ScrollView style={styles.container}>
                 <View>
                     <Text style={styles.modalHeader}>Give us your thoughts!</Text>
-                    <FeedbackPicker feedbackTypeChange={(text) => this.setState({feedbackType: text})}/>
+                    <FeedbackPicker feedbackTypeChange={(text) => this.setState({ feedbackType: text })} />
                     <View style={styles.searchSection}>
                         {(this.state.image ? imageText : null)}
                         <TextInput style={styles.txtInput}
-                                   numberOfLines={4}
-                                   multiline={true} onChangeText={(text) => this.setState({ text })}
-                                   value={this.state.text} blurOnSubmit={true} scrollEnable={true}
+                            numberOfLines={4}
+                            multiline={true} onChangeText={(text) => this.setState({ text })}
+                            value={this.state.text} blurOnSubmit={true} scrollEnable={true}
                         />
                     </View>
                     <ImagePickerButton style={[styles.button, { backgroundColor: 'orange' }]}
-                                       setImage={this.setImage}
+                        setImage={this.setImage}
                     ></ImagePickerButton>
                     <SmileSwitcher
                         smile={this.state.smile}
                         setSmiley={this.setSmiley}
                     >
                     </SmileSwitcher>
-                    <Button title="Confirm" onPress={this.submit}/>
+                    <Button title="Confirm" onPress={this.submit} />
                 </View>
             </ScrollView>
         )
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     txtInput: {
-        zIndex : 0,
+        zIndex: 0,
         padding: 5,
         margin: 5,
         width: Dimensions.get('window').width - 50,
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     imageIcon: {
         alignSelf: 'flex-end',
         color: 'gray',
-        zIndex : 99,
+        zIndex: 99,
         position: 'absolute',
         padding: 5
 
@@ -188,4 +188,3 @@ Template1Config.propTypes = {
     logo: PropTypes.string,
     password: PropTypes.string
 }
-

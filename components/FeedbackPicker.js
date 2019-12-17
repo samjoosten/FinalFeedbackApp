@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Platform,
     Text,
@@ -29,16 +29,16 @@ export default class FeedbackPicker extends Component {
             color: '#9EA0A4',
         };
         return (
-            <TouchableHighlight style={[styles.picker, {backgroundColor: 'white'}]} >
+            <TouchableHighlight style={[styles.picker, { backgroundColor: 'white' }]} >
                 <RNPickerSelect
-                    style = {{height: 20, color: 'black'}}
-                    itemStyle={{height: 44}}
+                    style={{ height: 20, color: 'black' }}
+                    itemStyle={{ height: 44 }}
                     placeholder={placeholder}
                     onValueChange={(value) => this.handlePickerValueChange(value)}
                     items={[
-                        {label: 'Feedback', value: 'feedback'},
-                        {label: 'Bug report', value: 'bugreport'},
-                        {label: 'Suggestion', value: 'suggestion'},
+                        { label: 'Feedback', value: 'feedback' },
+                        { label: 'Bug report', value: 'bugreport' },
+                        { label: 'Suggestion', value: 'suggestion' },
                     ]}
                 />
             </TouchableHighlight>
