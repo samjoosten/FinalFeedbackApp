@@ -15,21 +15,21 @@ export default class App extends React.Component {
     index: 0,
     routes: [
       {
-        key: "feedbackList",
-        title: "Feedback List",
-        icon: "format-list-checkbox",
-        color: "#181f2d"
-      },
-      {
         key: "dashboard",
         title: "Dashboard",
         icon: "monitor-dashboard",
         color: "#181f2d"
       },
       {
+        key: "feedbackList",
+        title: "Feedback List",
+        icon: "format-list-checkbox",
+        color: "#181f2d"
+      },
+      {
         key: "questions",
         title: "Questions",
-        icon: "format-text-rotation-none",
+        icon: "comment-question-outline",
         color: "#181f2d"
       }
     ]
@@ -38,8 +38,8 @@ export default class App extends React.Component {
   _handleIndexChange = index => this.setState({ index });
 
   _renderScene = BottomNavigation.SceneMap({
-    feedbackList: FeedbackRoute,
     dashboard: DashboardRoute,
+    feedbackList: FeedbackRoute,
     questions: QuestionsRoute
   });
 
