@@ -4,7 +4,7 @@ Made by Sam Joosten,
 
 This component shows a smiley face.
 
-The happieness of the smiley can be changed with the propety userInput.
+The happiness of the smiley can be changed with the property userInput.
 
 */
 
