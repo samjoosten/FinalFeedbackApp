@@ -39,31 +39,34 @@ class QuestionScreen extends Component {
   };  
   
   _filterFeedbacks = async () => {
-    //console.log("Filtering");
-    //console.log("Picked in filter: "+ picked);
 
+    // get chosen app from the state
     pickerValue = this.state.pickerValueHolder;
-    //console.log(pickerValue);
 
     let questionsFormFilter = [];
 
+    // if an app is chosen from the picker, fetch data for that app
     if (pickerValue !== "Choose App") {
       questionsFormFilter = await ajax.getQuestionsAndAvg(pickerValue);
     }
+
+    // set received data in a state
     this.setState({ questionsFormFilter });
-    //this.setState({ justPicked: false});
+
+    // set picked back to false so data won't be fetched until something is 
+    // chosen in the picker again
     picked = false;
 
   };  
   
   componentDidMount() {
+    // get app names to populate picker
     this._getFeedbackAppNames();
   }
   
   componentDidUpdate() {
-    //console.log("Inside DidUpdate");
-    //console.log("Picked in didUpdate: " + picked);
 
+    // if an app was chosen from the picker, fetch data for that app
     if (picked == true){
       this._filterFeedbacks();
     }
@@ -71,9 +74,13 @@ class QuestionScreen extends Component {
   }
 
   render() {
+    // get questions to display from the state
     const questionsToDisplay = this.state.questionsFormFilter;
+
+    // get current app name from the state
     const appname = this.state.pickerValueHolder;
 
+    // if there are questions to display, show QuestionList
     if (questionsToDisplay.length > 0) {
       return (
           <View style={styles.container}>
@@ -93,7 +100,7 @@ class QuestionScreen extends Component {
                       </View>
                     ) : (
                       <View>
-                        <Text>Apps very well available</Text>
+                        <Text>Apps available</Text>
                       </View>
                     )
                   }
@@ -103,6 +110,7 @@ class QuestionScreen extends Component {
                       style={[styles.filterDropdown, styles.pos_rel]}
                       selectedValue={this.state.pickerValueHolder}
                       onValueChange={(itemValue, itemIndex) => {
+                        // set chosen app in a state and set boolean variable picked to true
                         this.setState({ 
                           pickerValueHolder: itemValue}),
                         picked = true
@@ -124,6 +132,7 @@ class QuestionScreen extends Component {
               </View>
               <View>
                 <QuestionList
+                  // provide QuestionList with the feedback data and appName to display them
                   style={{backgroundColor: "#fff"}}
                   feedbacks={questionsToDisplay}
                   appName={appname}/>
@@ -132,6 +141,7 @@ class QuestionScreen extends Component {
           </View>
         );
       }
+      // If there are no questions to display, show the picker only
       else {
           return (
               <View style={styles.container}>
@@ -151,7 +161,7 @@ class QuestionScreen extends Component {
                           </View>
                         ) : (
                           <View>
-                            <Text>Apps very well available</Text>
+                            <Text>Apps available</Text>
                           </View>
                         )
                       }
@@ -161,6 +171,7 @@ class QuestionScreen extends Component {
                           style={[styles.filterDropdown, styles.pos_rel]}
                           selectedValue={this.state.pickerValueHolder}
                           onValueChange={(itemValue, itemIndex) => {
+                            // set chosen app in a state and set boolean variable picked to true
                             this.setState({ 
                               pickerValueHolder: itemValue}),
                             picked = true
@@ -181,7 +192,6 @@ class QuestionScreen extends Component {
                       </View>
                     </View>
                   </View>
-
                 </View>
               </View>
             );
