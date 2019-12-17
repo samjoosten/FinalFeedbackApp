@@ -8,7 +8,7 @@ yarn install
 
 Add dependencies:
 
-yarn add rn-viewpager\n
+yarn add rn-viewpager </br>
 yarn add victory-native
 yarn add react-native-charts
 yarn add react-native-svg-charts
