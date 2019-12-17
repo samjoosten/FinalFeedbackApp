@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     marginLeft: 25,
     flexDirection: "row",
     width: scr / 5,
-    height: 50
+    height: 60
   }
 });
 
