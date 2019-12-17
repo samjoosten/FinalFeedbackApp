@@ -138,7 +138,7 @@ class DashboardScreen extends Component {
         >
           <View style={[styles.mlr10, styles.ptb10]}>
             <View style={styles.panel_Dashboard}>
-              <Text style={[styles.text_white, styles.text_bold]}>
+              <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
                 Feedback amount per year
               </Text>         
                 <LineChart 
@@ -161,9 +161,7 @@ class DashboardScreen extends Component {
               />
             </View>
             <View style={styles.panel_Dashboard}>           
-                <Text
-                  style={[styles.text_white, styles.text_bold, styles.ptb10]}
-                >
+                <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
                   Average rating per app
                 </Text>
                 <SmileysAvgPerApp
@@ -177,7 +175,7 @@ class DashboardScreen extends Component {
               style={{ height: 560 }}
               indicator={this._renderOSCatTitleIndicator()}>
             <View style={styles.panel_Dashboard}>
-              <Text style={[styles.text_white, styles.text_bold, styles.ptb10]}>
+              <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
                 OS distribution
               </Text>
                 <Bar 

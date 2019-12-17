@@ -12,8 +12,10 @@ export default StyleSheet.create({
   ptb10: {
     marginVertical: 10
   },
+  titles_charts: {
+    fontSize: 20
+  },
   text_white: {
-    fontSize: 20,
     color: "#fff"
   },
   text_white_opacity: {
