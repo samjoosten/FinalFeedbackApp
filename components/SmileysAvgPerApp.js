@@ -44,7 +44,7 @@ class SmileysAvgPerApp extends React.PureComponent {
       ));
 
     return (
-      <View style={{ flex: 1}}>
+      <View style={{ flex: 1, marginTop: 10}}>
         <View
           style={{
             height: 250,
@@ -82,16 +82,17 @@ class SmileysAvgPerApp extends React.PureComponent {
           </BarChart>
         </View>
 
-        <View style={{ height: 90, width: scrW*0.9, marginLeft: 25, marginTop: 10 }}>
+        <View style={{ height: 90, width: scrW*0.9, marginTop: 10 }}>
           <XAxis
-            style={{ height: 90, width: scrW*0.8, alignSelf: "flex-end" }}
+            style={{ height: 90, width: scrW*0.9, alignSelf: "flex-end" }}
             data={app}
             scale={scale.scaleBand}
             xAccessor={({ item, index }) => item}
+            contentInset={{left: scrW*0.12, right: scrW*-0.02}}
             formatLabel={(value, index) => value}
             labelStyle={{ color: "white" }}
             svg={{
-              rotation: 70,
+              rotation: 60,
               originY: 28,
               y: 30,
               fill: "white",
