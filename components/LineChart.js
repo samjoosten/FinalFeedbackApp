@@ -51,7 +51,7 @@ class LineChart extends React.PureComponent {
             theme={ CustomVictoryTheme }
             containerComponent={<VictoryVoronoiContainer />}
           >
-          <VictoryLabel x={5} y={30} style={{fill: "#ECEFF1", fontSize: 11, fontStyle: "italic", fontFamily: " sans-serif "}} text={"Amount \nof feedbacks"}/>
+          <VictoryLabel x={5} y={30} style={{fill: "#ECEFF1", fontSize: 11, fontStyle: "italic"}} text={"Amount \nof feedbacks"}/>
             {feedbacksCount.length !== 0 ? (
               <VictoryLine
                 style={{
@@ -83,7 +83,7 @@ class LineChart extends React.PureComponent {
               <VictoryScatter
                 style={{ data: { fill: "#ab34eb" } }}
                 size={5}
-                labelComponent={<VictoryTooltip style={{ fontFamily: "sans-serif" }} constrainToVisibleArea />}
+                labelComponent={<VictoryTooltip constrainToVisibleArea />}
                 data={data}
                 labels={({ datum }) => datum.y}
               />

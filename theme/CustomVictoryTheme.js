@@ -17,7 +17,7 @@ const grey900 = "#212121";
 // *
 // * Typography
 // *
-const sansSerif = "'Helvetica Neue', Helvetica, sans-serif";
+// const sansSerif = "'Helvetica Neue', Helvetica";
 const letterSpacing = "normal";
 const fontSize = 12;
 // *
@@ -33,7 +33,7 @@ const baseProps = {
 // * Labels
 // *
 const baseLabelStyles = {
-  fontFamily: sansSerif,
+  // fontFamily: sansSerif,
   fontSize,
   letterSpacing,
   padding,
