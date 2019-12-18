@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import {
   VictoryLine,
   VictoryChart,
-  VictoryTheme,
   VictoryVoronoiContainer,
   VictoryScatter,
   VictoryTooltip,
   VictoryLabel
 } from "victory-native";
+import CustomVictoryTheme from "../theme/CustomVictoryTheme"
 import { PropTypes } from "prop-types";
 import { Text, View } from "react-native";
 
@@ -19,6 +19,15 @@ class LineChart extends React.PureComponent {
   };
 
   render() {
+    const customTheme = {
+      axis: {
+        style: {
+          tickLabels: {
+            fill: 'white',
+          },
+        },
+      },
+    }
     const feedbacksCount = this.props.feedbacksPerYear;
     const data =[
       { x: "Jan", y: feedbacksCount[0] },
@@ -39,10 +48,10 @@ class LineChart extends React.PureComponent {
       <View>
         {feedbacksCount.length !== 0 ? (
           <VictoryChart
-            theme={VictoryTheme.material}
+            theme={ CustomVictoryTheme }
             containerComponent={<VictoryVoronoiContainer />}
           >
-          <VictoryLabel x={5} y={30} style={{fill: "#f0f0f0", fontSize: 11, fontStyle: "italic", fontFamily: "'Fira Sans', sans-serif"}} text={"Amount \nof feedbacks"}/>
+          <VictoryLabel x={5} y={30} style={{fill: "#394A57", fontSize: 11, fontStyle: "italic", fontFamily: "'Fira Sans', sans-serif"}} text={"Amount \nof feedbacks"}/>
             {feedbacksCount.length !== 0 ? (
               <VictoryLine
                 style={{
