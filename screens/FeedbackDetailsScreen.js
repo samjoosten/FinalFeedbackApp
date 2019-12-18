@@ -3,6 +3,7 @@ import { View, Text, ScrollView, Alert } from "react-native";
 import { withNavigation } from "react-navigation";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import StarRating from "react-native-star-rating";
 
 import StatusBarAdjust from "../components/StatusBarAdjust";
 import SmileyDetailsScreen from "../components/SmileyDetailsScreen";
@@ -20,16 +21,22 @@ class FeedbackDetailsScreen extends React.Component {
     const _feedback = await ajax.getFeedbackDetail(tagID);
     this.setState({ feedbackDetails: _feedback });
   };
-
+  _deleteFeedbackByTag = async () => {
+    const tagID = this.props.navigation.getParam("tag");
+    const deletedValue = await ajax.getFeedbackToDeleteByTag(tagID);
+    if (deletedValue > 0) {
+      console.log("deleted");
+      this._getFeedbackDetailData();
+      this.props.navigation.navigate("DashboardDomain");
+      this._getFeedbackDetailData();
+    }
+  };
   componentDidMount() {
     this._getFeedbackDetailData();
   }
 
   render() {
     const feedback = this.state.feedbackDetails;
-    const appName = feedback.map((item, index) => {
-      return item.app;
-    });
     const feedbackID = feedback.map((item, index) => {
       return item.id;
     });
@@ -93,9 +100,23 @@ class FeedbackDetailsScreen extends React.Component {
         return null;
       }
     });
+    const star2 = feedback.map((item, index) => {
+      if (item.template === "Template3") {
+        return item.questions.question2.stars;
+      } else {
+        return null;
+      }
+    });
     const question3 = feedback.map((item, index) => {
       if (item.template === "Template3") {
         return item.questions.question3.question;
+      } else {
+        return null;
+      }
+    });
+    const star3 = feedback.map((item, index) => {
+      if (item.template === "Template3") {
+        return item.questions.question3.stars;
       } else {
         return null;
       }
@@ -167,17 +188,61 @@ class FeedbackDetailsScreen extends React.Component {
             <View>
               {question0.toString().length > 0 ? (
                 <View style={styles.panel}>
-                  <Text style={[styles.text_white]}>
+                  <Text style={[styles.text_white, styles.text_h4]}>
                     See feedback questions
                   </Text>
-                  <Text style={[styles.text_white_opacity]}>
-                    1. {question0}
-                  </Text>
-                  <Text style={[styles.text_white_opacity]}> {star0}</Text>
-                  <Text style={[styles.text_white_opacity]}>
-                    2. {question1}
-                  </Text>
-                  <Text style={[styles.text_white_opacity]}> {star1}</Text>
+                  <Text />
+                  <Text style={[styles.text_white_opacity]}>{question0}</Text>
+                  <View>
+                    <StarRating
+                      starStyle={{ paddingVertical: 5 }}
+                      containerStyle={{ paddingVertical: 5 }}
+                      starStyle={{ color: "orange" }}
+                      disabled={true}
+                      maxStars={5}
+                      rating={star0}
+                      starSize={25}
+                    />
+                  </View>
+                  <Text />
+                  <Text style={[styles.text_white_opacity]}>{question1}</Text>
+                  <View>
+                    <StarRating
+                      starStyle={{ paddingVertical: 5 }}
+                      containerStyle={{ paddingVertical: 5 }}
+                      starStyle={{ color: "orange" }}
+                      disabled={true}
+                      maxStars={5}
+                      rating={star1}
+                      starSize={25}
+                    />
+                  </View>
+                  <Text />
+                  <Text style={[styles.text_white_opacity]}>{question2}</Text>
+                  <View>
+                    <StarRating
+                      starStyle={{ paddingVertical: 5 }}
+                      containerStyle={{ paddingVertical: 5 }}
+                      starStyle={{ color: "orange" }}
+                      disabled={true}
+                      maxStars={5}
+                      rating={star2}
+                      starSize={25}
+                    />
+                  </View>
+                  <Text />
+                  <Text style={[styles.text_white_opacity]}>{question3}</Text>
+                  <View>
+                    <StarRating
+                      starStyle={{ paddingVertical: 5 }}
+                      containerStyle={{ paddingVertical: 5 }}
+                      starStyle={{ color: "orange" }}
+                      disabled={true}
+                      maxStars={5}
+                      rating={star3}
+                      starSize={25}
+                    />
+                  </View>
                 </View>
               ) : (
                 <View />
@@ -194,7 +259,10 @@ class FeedbackDetailsScreen extends React.Component {
                         text: "Cancel",
                         onPress: () => console.log("Cancel Pressed!")
                       },
-                      { text: "Yes", onPress: () => this.handleDeleteFeedback }
+                      {
+                        text: "Yes",
+                        onPress: () => this._deleteFeedbackByTag()
+                      }
                     ],
                     { cancelable: false }
                   )

@@ -30,6 +30,9 @@ export default StyleSheet.create({
   text_h3: {
     fontSize: 20
   },
+  text_h4: {
+    fontSize: 18
+  },
   mlr20: {
     marginHorizontal: 20
   },
