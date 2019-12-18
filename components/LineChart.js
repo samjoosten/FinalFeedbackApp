@@ -74,7 +74,7 @@ class LineChart extends React.PureComponent {
               <VictoryScatter
                 style={{ data: { fill: "#ab34eb" } }}
                 size={5}
-                labelComponent={<VictoryTooltip constrainToVisibleArea />}
+                labelComponent={<VictoryTooltip style={{ fontFamily: "'Fira Sans', sans-serif" }} constrainToVisibleArea />}
                 data={data}
                 labels={({ datum }) => datum.y}
               />
