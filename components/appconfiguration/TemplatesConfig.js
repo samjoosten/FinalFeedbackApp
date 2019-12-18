@@ -24,6 +24,7 @@ export default class TemplatesConfig extends Component {
 
         this.state = {
             size: { width, height },
+           
         };
     }
 

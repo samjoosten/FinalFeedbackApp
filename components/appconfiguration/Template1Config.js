@@ -79,7 +79,7 @@ export default class Template1Config extends Component {
         const imageText = <Ionicons style={styles.imageIcon} name="paperclip" size={25} />;
 
         return (
-            <ScrollView style={styles.container}>
+            <View style={styles.container}>
                 <View>
                     <Text style={styles.modalHeader}>Give us your thoughts!</Text>
                     <FeedbackPicker feedbackTypeChange={(text) => this.setState({ feedbackType: text })} />
@@ -101,7 +101,7 @@ export default class Template1Config extends Component {
                     </SmileSwitcher>
                     <Button title="Confirm" onPress={this.submit} />
                 </View>
-            </ScrollView>
+            </View>
         )
     }
 }
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#313131',
         flexDirection: 'row',
-        justifyContent: 'center',
+        
     },
     buttonContainer: {
         flex: 1,
