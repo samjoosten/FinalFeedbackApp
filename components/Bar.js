@@ -4,11 +4,13 @@ import {
   VictoryChart,
   VictoryTheme,
   VictoryVoronoiContainer,
-  VictoryScatter,
+  VictoryLabel,
   VictoryTooltip
 } from "victory-native";
+import styles from "../style";
 import { View, Text } from "react-native";
 import PropTypes from "prop-types";
+
 
 class Bar extends React.PureComponent {
   static propTypes = {
@@ -32,6 +34,8 @@ class Bar extends React.PureComponent {
             domain={{ x: [0, 3] }}
             containerComponent={<VictoryVoronoiContainer />}
           >
+            <VictoryLabel x={5} y={30} style={{fill: "#f0f0f0", fontSize: 11, fontStyle: "italic", fontFamily: "'Fira Sans', sans-serif"}} text={"Amount \nof devices"}/>
+            <VictoryLabel x={270} y={325} style={{fill: "#f0f0f0", fontSize: 11, fontStyle: "italic", fontFamily: "'Fira Sans', sans-serif"}} text={"Operation \nsystems"}/>
             {osCount.length !== 0 ? (
               <VictoryBar
                 labelComponent={<VictoryTooltip />}

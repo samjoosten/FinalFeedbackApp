@@ -151,7 +151,7 @@ class DashboardScreen extends Component {
               style={{ height: 550 }}
               indicator={this._renderSmileyChartsTitleIndicator()}>
             <View style={styles.panel_Dashboard}>
-              <Text style={[styles.text_bold, styles.text_white]}>
+              <Text style={[styles.text_bold, styles.titles_charts, styles.text_white]}>
                 Satisfaction index
               </Text>
               <PieChartWithClickSlices

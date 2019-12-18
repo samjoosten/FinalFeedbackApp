@@ -15,6 +15,9 @@ export default StyleSheet.create({
   titles_charts: {
     fontSize: 20
   },
+  axis_titles: {
+    color: "#fff",
+  },
   text_white: {
     color: "#fff"
   },
