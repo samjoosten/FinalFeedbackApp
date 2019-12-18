@@ -37,7 +37,7 @@ const baseLabelStyles = {
   fontSize,
   letterSpacing,
   padding,
-  fill: blueGrey700,
+  fill: blueGrey300,
   stroke: "transparent",
   strokeWidth: 0
 };
@@ -78,7 +78,7 @@ export default {
         }),
         grid: {
           fill: "none",
-          stroke: blueGrey50,
+          stroke: blueGrey300,
           strokeDasharray,
           strokeLinecap,
           strokeLinejoin,
@@ -87,13 +87,13 @@ export default {
         ticks: {
           fill: "transparent",
           size: 5,
-          stroke: blueGrey300,
+          stroke: blueGrey50,
           strokeWidth: 1,
           strokeLinecap,
           strokeLinejoin
         },
         tickLabels: assign({}, baseLabelStyles, {
-          fill: blueGrey700
+          fill: blueGrey50
         })
       }
     },

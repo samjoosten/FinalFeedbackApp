@@ -7,7 +7,7 @@ import {
   VictoryLabel,
   VictoryTooltip
 } from "victory-native";
-import styles from "../style";
+import CustomVictoryTheme from "../theme/CustomVictoryTheme"
 import { View, Text } from "react-native";
 import PropTypes from "prop-types";
 
@@ -30,12 +30,12 @@ class Bar extends React.PureComponent {
       <View>
         {osCount.length !== 0 ? (
           <VictoryChart
-            theme={VictoryTheme.material}
+            theme={CustomVictoryTheme}
             domain={{ x: [0, 3] }}
             containerComponent={<VictoryVoronoiContainer />}
           >
-            <VictoryLabel x={5} y={30} style={{fill: "#394A57", fontSize: 11, fontStyle: "italic", fontFamily: "'Fira Sans', sans-serif"}} text={"Feedbacks \nfrom devices"}/>
-            <VictoryLabel x={270} y={325} style={{fill: "#394A57", fontSize: 11, fontStyle: "italic", fontFamily: "'Fira Sans', sans-serif"}} text={"Operation \nsystems"}/>
+            <VictoryLabel x={5} y={30} style={{fill: "#ECEFF1", fontSize: 11, fontStyle: "italic", fontFamily: "'Fira Sans', sans-serif"}} text={"Feedbacks \nfrom devices"}/>
+            <VictoryLabel x={320} y={325} style={{fill: "#ECEFF1", fontSize: 11, fontStyle: "italic", fontFamily: "'Fira Sans', sans-serif"}} text={"Operation \nsystems"}/>
             {osCount.length !== 0 ? (
               <VictoryBar
                 labelComponent={<VictoryTooltip style={{ fontFamily: "'Fira Sans', sans-serif" }} constrainToVisibleArea />}
