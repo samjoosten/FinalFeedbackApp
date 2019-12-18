@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Text,
     TouchableHighlight,
@@ -10,7 +10,7 @@ import {
     Platform
 } from 'react-native';
 import PropTypes from 'prop-types'
-import {Ionicons} from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import * as Device from 'expo-device';
 import FeedbackPicker from './FeedbackPicker'
 import SmileSwitcher from './smileform/SmileSwitcher';
@@ -40,7 +40,7 @@ class Template1 extends Component {
     //Toast messages show up when the user has succesfully sent feedback for an app.
     //This method works with OS Android only
     showToast = () => {
-        if(Platform.OS === 'android'){
+        if (Platform.OS === 'android') {
             ToastAndroid.showWithGravityAndOffset(
                 "Your feedback has been sent!",
                 ToastAndroid.LONG,
@@ -70,81 +70,81 @@ class Template1 extends Component {
         };
         // textfield cannot be empty
         if (this.state.text) {
-                // set the device info and os in state
-                this.setState({
-                    deviceInfo: Device.modelName,
-                    deviceOs: Platform.OS
-                });
-                // post the user feedback to the api
-                fetch(Constants.url+ 'post', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        template: 'Template1',
-                        feedback: this.state.text,
-                        app: this.state.appName,
-                        image: createFormData(this.state.image),
-                        smiley: this.state.smile,
-                        device: this.state.deviceInfo,
-                        os: this.state.deviceOs,
-                        category: this.state.feedbackType,
-                        tag: feedbackTag
+            // set the device info and os in state
+            this.setState({
+                deviceInfo: Device.modelName,
+                deviceOs: Platform.OS
+            });
+            // post the user feedback to the api
+            fetch(Constants.url + 'post', {
+                method: 'POST',
+                body: JSON.stringify({
+                    template: 'Template1',
+                    feedback: this.state.text,
+                    app: this.state.appName,
+                    image: createFormData(this.state.image),
+                    smiley: this.state.smile,
+                    device: this.state.deviceInfo,
+                    os: this.state.deviceOs,
+                    category: this.state.feedbackType,
+                    tag: feedbackTag
 
-                    })
                 })
-                    .then(res => console.log(JSON.stringify(res)))
-                    .catch(err => console.log(JSON.stringify(err)));
-                this.setState({ text: '' });
-                this.props.navigation.navigate('Home');
-                // if (Platform.OS === "android") {
-                //     this.showToast()
-                // }
-        } else if(this.state.feedbackType === ''){
+            })
+                .then(res => console.log(JSON.stringify(res)))
+                .catch(err => console.log(JSON.stringify(err)));
+            this.setState({ text: '' });
+            this.props.navigation.navigate('Home');
+            // if (Platform.OS === "android") {
+            //     this.showToast()
+            // }
+        } else if (this.state.feedbackType === '') {
             Alert.alert("Please select a type of feedback")
-        } else if(this.state.text === ''){
+        } else if (this.state.text === '') {
             Alert.alert("Please fill in the textfield")
         }
 
 
     }
 
-    setImage(source){
+    setImage(source) {
         this.setState({
             image: source
         });
     }
 
     //update smiley var from components
-    setSmiley(userInput){
+    setSmiley(userInput) {
         this.setState({
             smile: userInput
         });
     }
     render() {
-        const imageText = <Ionicons style={styles.imageIcon} name="md-attach" size={25}/>;
+        const imageText = <Ionicons style={styles.imageIcon} name="md-attach" size={25} />;
         return (
             <View style={styles.container}>
                 <View>
                     <Text style={styles.modalHeader}>Give us your thoughts!</Text>
-                    <FeedbackPicker feedbackTypeChange={(text) => this.setState({feedbackType: text})}/>
+                    <FeedbackPicker feedbackTypeChange={(text) => this.setState({ feedbackType: text })} />
                     <View style={styles.searchSection}>
                         {(this.state.image ? imageText : null)}
                         <TextInput style={styles.txtInput}
-                                   numberOfLines={4}
-                                   multiline={true} onChangeText={(text) => this.setState({ text })}
-                                   value={this.state.text} blurOnSubmit={true} scrollEnable={true}
+                            numberOfLines={4}
+                            multiline={true} onChangeText={(text) => this.setState({ text })}
+                            value={this.state.text} blurOnSubmit={true} scrollEnable={true}
                         />
                     </View>
                     <ImagePickerButton style={[styles.button, { backgroundColor: 'orange' }]}
-                                       setImage={this.setImage}
+                        setImage={this.setImage}
                     ></ImagePickerButton>
                     <SmileSwitcher
                         smile={this.state.smile}
                         setSmiley={this.setSmiley}
                     >
                     </SmileSwitcher>
-                    <TouchableHighlight  style={[styles.button, { backgroundColor: '#0984e3' }]}
-                                         onPress={this.submit}
-                                         underlayColor="#74b9ff">
+                    <TouchableHighlight style={[styles.button, { backgroundColor: '#0984e3' }]}
+                        onPress={this.submit}
+                        underlayColor="#74b9ff">
                         <Text style={styles.btnText}>Submit!</Text>
                     </TouchableHighlight>
                 </View>
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     },
     txtInput: {
-        zIndex : 0,
+        zIndex: 0,
         padding: 5,
         margin: 5,
         width: Dimensions.get('window').width - 50,
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     imageIcon: {
         alignSelf: 'flex-end',
         color: 'gray',
-        zIndex : 99,
+        zIndex: 99,
         position: 'absolute',
         padding: 5
 

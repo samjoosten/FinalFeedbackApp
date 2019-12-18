@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Text,
     TouchableHighlight,
@@ -43,9 +43,9 @@ class Template2 extends Component {
         var uneven = [];
         for (var i = 0; i < 11; i++) {
             if (i % 2 === 0) {
-                even.push({key: i, val: i, active: false});
+                even.push({ key: i, val: i, active: false });
             } else {
-                uneven.push({key: i, val: i, active: false});
+                uneven.push({ key: i, val: i, active: false });
             }
         }
         var data = even.concat(uneven);
@@ -55,57 +55,57 @@ class Template2 extends Component {
     }
 
     addBugReportText(text) {
-        this.setState({ feedback: text})
+        this.setState({ feedback: text })
     }
 
     sendFeedback() {
         var feedbackTag = Constants.makeId();
 
-        if(this.state.rating !== ''){
+        if (this.state.rating !== '') {
             var chosenFeature = this.state.featurePick;
-            if(chosenFeature !== ''){
+            if (chosenFeature !== '') {
 
                 if (this.state.feedback !== "") {
-                    this.setState({feedbackType: "bugreport"})
+                    this.setState({ feedbackType: "bugreport" })
                 } else {
-                    this.setState({ feedbackType: "feedback"})
+                    this.setState({ feedbackType: "feedback" })
                 }
-                    // set the device info and os in state
-                    this.setState({
-                        deviceInfo: Device.modelName,
-                        deviceOs: Platform.OS
-                    });
-                    // post the user feedback to the api
+                // set the device info and os in state
+                this.setState({
+                    deviceInfo: Device.modelName,
+                    deviceOs: Platform.OS
+                });
+                // post the user feedback to the api
 
-                    fetch(Constants.url + 'post', {
-                        method: 'POST',
-                        body: JSON.stringify({
-                            template: 'Template2',
-                            feedback: this.state.feedback,
-                            app: this.state.appName,
-                            device: this.state.deviceInfo,
-                            os: this.state.deviceOs,
-                            category: this.state.feedbackType,
-                            rating: this.state.rating,
-                            feature: this.state.featurePick,
-                            tag: feedbackTag
+                fetch(Constants.url + 'post', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        template: 'Template2',
+                        feedback: this.state.feedback,
+                        app: this.state.appName,
+                        device: this.state.deviceInfo,
+                        os: this.state.deviceOs,
+                        category: this.state.feedbackType,
+                        rating: this.state.rating,
+                        feature: this.state.featurePick,
+                        tag: feedbackTag
 
 
-                        })
                     })
-                        .then(res => console.log(JSON.stringify(res)))
-                        .catch(err => console.log(JSON.stringify(err)));
-                    this.props.navigation.navigate('Home');
-            }else{
+                })
+                    .then(res => console.log(JSON.stringify(res)))
+                    .catch(err => console.log(JSON.stringify(err)));
+                this.props.navigation.navigate('Home');
+            } else {
                 Alert.alert('You must pick a feature');
             }
-        }else{
+        } else {
             Alert.alert('Rating cannot be empty');
         }
 
     }
 
-    renderItem = ({item}) => {
+    renderItem = ({ item }) => {
         return (
             <TouchableHighlight style={item.active ? styles.circleButtonActive : styles.circleButton} onPress={() => {
                 this.state.data.forEach((element) => {
@@ -120,18 +120,18 @@ class Template2 extends Component {
 
             }}>
 
-                <Text style={{color: 'white', fontSize: 17, fontWeight: 'bold'}}>{item.val}</Text>
+                <Text style={{ color: 'white', fontSize: 17, fontWeight: 'bold' }}>{item.val}</Text>
             </TouchableHighlight>
         )
     }
 
 
 
-    renderButtonItem = ({item}) => {
+    renderButtonItem = ({ item }) => {
         return (
             <TouchableHighlight style={item.active ? [styles.button, {
                 backgroundColor: '#e67e22'
-            }] : [styles.button, {backgroundColor: 'orange'}]} onPress={() => {
+            }] : [styles.button, { backgroundColor: 'orange' }]} onPress={() => {
                 this.state.configData.forEach((element) => {
                     element.active = false;
                 })
@@ -152,7 +152,7 @@ class Template2 extends Component {
 
 
             }}>
-                <Text style={{color: 'white', fontWeight: 'bold'}}>{item.featureConfig}</Text>
+                <Text style={{ color: 'white', fontWeight: 'bold' }}>{item.featureConfig}</Text>
             </TouchableHighlight>
         )
 
@@ -168,9 +168,9 @@ class Template2 extends Component {
     renderListFooter = () => {
         return (
             <View
-                style={{flexDirection: 'row', justifyContent: 'space-between', width: Dimensions.get('window').width}}>
-                <Text style={{margin: 10, color: 'white'}}>Really Bad</Text>
-                <Text style={{margin: 10, color: 'white'}}>Really Good</Text>
+                style={{ flexDirection: 'row', justifyContent: 'space-between', width: Dimensions.get('window').width }}>
+                <Text style={{ margin: 10, color: 'white' }}>Really Bad</Text>
+                <Text style={{ margin: 10, color: 'white' }}>Really Good</Text>
             </View>
         )
     }
@@ -197,25 +197,25 @@ class Template2 extends Component {
                         extractData={this.state}
                         ListHeaderComponent={this.renderListHeader}
                         ListFooterComponent={this.renderListFooter}
-                        renderItem={this.renderItem}/>
+                        renderItem={this.renderItem} />
                     {this.state.loadTextInput ? <View style={styles.btnContainer}>
                         <Text style={styles.listHeader}>{this.state.featureHeader}</Text>
                         <FlatList numColumns={2}
-                                  horizontal={false}
-                                  contentContainerStyle={styles.btnList}
-                                  data={this.state.configData}
-                                  extractData={this.state}
-                                  renderItem={this.renderButtonItem}/>
+                            horizontal={false}
+                            contentContainerStyle={styles.btnList}
+                            data={this.state.configData}
+                            extractData={this.state}
+                            renderItem={this.renderButtonItem} />
                         {this.state.loadInputSection ? <View style={styles.inputSection}>
-                            <TextInput style={{color: 'white'}}
-                                       placeholder="Type your feature..."
-                                       placeholderTextColor="#C3C3C3"
-                                       onChangeText={(text) => this.setState({featurePick: text})} />
-                        </View> : <View/>}
-                    </View> : <View style={styles.btnContainer}/>}
-                    <BugReportCheckBox textChange={(text) => this.addBugReportText(text)}/>
-                    <View style={{flex: 1, justifyContent: 'center'}}>
-                        <Button title="Submit" onPress={this.sendFeedback} disabled={this.state.buttonActive}/>
+                            <TextInput style={{ color: 'white' }}
+                                placeholder="Type your feature..."
+                                placeholderTextColor="#C3C3C3"
+                                onChangeText={(text) => this.setState({ featurePick: text })} />
+                        </View> : <View />}
+                    </View> : <View style={styles.btnContainer} />}
+                    <BugReportCheckBox textChange={(text) => this.addBugReportText(text)} />
+                    <View style={{ flex: 1, justifyContent: 'center' }}>
+                        <Button title="Submit" onPress={this.sendFeedback} disabled={this.state.buttonActive} />
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>

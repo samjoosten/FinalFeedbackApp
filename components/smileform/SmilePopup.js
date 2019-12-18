@@ -1,3 +1,16 @@
+/*
+
+Made by Tim Terwijn,
+
+This component shows up when a user press on the smiley
+in the smile switcher.
+
+A user can click on one of the smileys to go back to
+the old smiley component which has been set back to
+the selected value.
+
+*/
+
 import React, { Component } from 'react';
 import {
     StyleSheet,

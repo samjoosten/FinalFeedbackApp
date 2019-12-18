@@ -5,13 +5,13 @@ export default class Constants {
     //static url = 'http://7cf324aa.ngrok.io/'
 
     //team frontend
-    static url = 'http://e8478526.ngrok.io/';
+    static url = 'http://daf2e285.ngrok.io/';
 
     static makeId() {
-        var result           = '';
-        var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        var result = '';
+        var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         var charactersLength = characters.length;
-        for ( var i = 0; i < charactersLength; i++ ) {
+        for (var i = 0; i < charactersLength; i++) {
             result += characters.charAt(Math.floor(Math.random() * charactersLength));
         }
         return result;

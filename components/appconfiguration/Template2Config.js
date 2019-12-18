@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
     Text,
     TouchableHighlight,
@@ -23,7 +23,7 @@ export default class Template2Config extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            featureButtons: [1,2,3,4,5],
+            featureButtons: [1, 2, 3, 4, 5],
             featureConfig: {},
             loadTextInput: false,
             loadBugInput: false,
@@ -44,9 +44,9 @@ export default class Template2Config extends Component {
         var uneven = [];
         for (var i = 0; i < 11; i++) {
             if (i % 2 === 0) {
-                even.push({key: i, val: i, active: false});
+                even.push({ key: i, val: i, active: false });
             } else {
-                uneven.push({key: i, val: i, active: false});
+                uneven.push({ key: i, val: i, active: false });
             }
         }
         var data = even.concat(uneven);
@@ -56,7 +56,7 @@ export default class Template2Config extends Component {
     }
 
     addBugReportText(text) {
-        this.setState({ feedback: text})
+        this.setState({ feedback: text })
     }
 
     inputChangeHandler(text, index) {
@@ -73,14 +73,14 @@ export default class Template2Config extends Component {
         var i;
         const MINIMUMFEATUREAMOUNT = 4;
 
-        for(i = 0; i<MINIMUMFEATUREAMOUNT; i++){
-            if(!featureConfig[i] || featureConfig[i] === ''){
+        for (i = 0; i < MINIMUMFEATUREAMOUNT; i++) {
+            if (!featureConfig[i] || featureConfig[i] === '') {
                 alert('The first 4 features must be filled in');
                 return;
             }
         }
-        for(i = MINIMUMFEATUREAMOUNT; i< Object.keys(featureConfig).length ; i++){
-            if(this.state.featureConfig[i] === ''){
+        for (i = MINIMUMFEATUREAMOUNT; i < Object.keys(featureConfig).length; i++) {
+            if (this.state.featureConfig[i] === '') {
                 delete featureConfig[i]
 
             }
@@ -117,7 +117,7 @@ export default class Template2Config extends Component {
         })
     }
 
-    renderItem = ({item}) => {
+    renderItem = ({ item }) => {
         return (
 
             <TouchableHighlight style={item.active ? styles.circleButtonActive : styles.circleButton} onPress={() => {
@@ -131,24 +131,24 @@ export default class Template2Config extends Component {
 
             }}>
 
-                <Text style={{color: 'white', fontSize: 17, fontWeight: 'bold'}}>{item.val}</Text>
+                <Text style={{ color: 'white', fontSize: 17, fontWeight: 'bold' }}>{item.val}</Text>
             </TouchableHighlight>
         )
     }
 
 
 
-    renderButtonItem = ({item, index}) => {
+    renderButtonItem = ({ item, index }) => {
 
         return (
 
-            <TouchableHighlight style={[styles.button, {backgroundColor: 'orange'}]}>
+            <TouchableHighlight style={[styles.button, { backgroundColor: 'orange' }]}>
                 {index !== 4 ? <TextInput placeholder="Type your feature..." value={this.state.featureConfig[index]}
-                                          onChangeText={(text) => this.inputChangeHandler(text, index)}/>  : <TextInput placeholder="Other..."
-                                                                                                                        placeholderTextColor= 'black'
-                                                                                                                        editable = {false}
-                                                                                                                        value={this.state.featureConfig[index]}
-                                                                                                                        onChangeText={(text) => this.inputChangeHandler(text, index)}/>}
+                    onChangeText={(text) => this.inputChangeHandler(text, index)} /> : <TextInput placeholder="Other..."
+                        placeholderTextColor='black'
+                        editable={false}
+                        value={this.state.featureConfig[index]}
+                        onChangeText={(text) => this.inputChangeHandler(text, index)} />}
             </TouchableHighlight>
         )
 
@@ -166,18 +166,18 @@ export default class Template2Config extends Component {
     renderListFooter = () => {
         return (
             <View
-                style={{flexDirection: 'row', justifyContent: 'space-between', width: Dimensions.get('window').width}}>
-                <Text style={{margin: 10, color: 'white'}}>Really Bad</Text>
-                <Text style={{margin: 10, color: 'white'}}>Really Good</Text>
+                style={{ flexDirection: 'row', justifyContent: 'space-between', width: Dimensions.get('window').width }}>
+                <Text style={{ margin: 10, color: 'white' }}>Really Bad</Text>
+                <Text style={{ margin: 10, color: 'white' }}>Really Good</Text>
             </View>
         )
     }
 
     renderFeatureListFooter = () => {
         return (
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                 <TouchableHighlight style={styles.addButton} onPress={this.addFeatureButton}>
-                    <Text style={{fontSize: 40, color: 'white', alignSelf: 'center'}}>+</Text>
+                    <Text style={{ fontSize: 40, color: 'white', alignSelf: 'center' }}>+</Text>
                 </TouchableHighlight>
             </View>
         )
@@ -205,26 +205,26 @@ export default class Template2Config extends Component {
                         extractData={this.state}
                         ListHeaderComponent={this.renderListHeader}
                         ListFooterComponent={this.renderListFooter}
-                        renderItem={this.renderItem}/>
+                        renderItem={this.renderItem} />
                     <View style={styles.btnContainer}>
                         <Text style={styles.listHeader}>What did you like?</Text>
                         <FlatList numColumns={2}
-                                  horizontal={false}
-                                  contentContainerStyle={styles.btnList}
-                                  data={this.state.featureButtons}
-                                  ListFooterComponent={this.renderFeatureListFooter}
-                                  extractData={this.state}
-                                  renderItem={this.renderButtonItem}/>
+                            horizontal={false}
+                            contentContainerStyle={styles.btnList}
+                            data={this.state.featureButtons}
+                            ListFooterComponent={this.renderFeatureListFooter}
+                            extractData={this.state}
+                            renderItem={this.renderButtonItem} />
                         {this.state.loadInputSection ? <View style={styles.inputSection}>
-                            <TextInput style={{color: 'white'}}
-                                       placeholder="Type your feature..."
-                                       placeholderTextColor="#C3C3C3"
-                                       onChangeText={(text) => this.setState({featurePick: text})} />
-                        </View> : <View/>}
+                            <TextInput style={{ color: 'white' }}
+                                placeholder="Type your feature..."
+                                placeholderTextColor="#C3C3C3"
+                                onChangeText={(text) => this.setState({ featurePick: text })} />
+                        </View> : <View />}
                     </View>
-                    <BugReportCheckBox textChange={(text) => this.addBugReportText(text)}/>
-                    <View style={{flex: 1, justifyContent: 'center'}}>
-                        <Button title="Confirm" onPress={this.confirm}/>
+                    <BugReportCheckBox textChange={(text) => this.addBugReportText(text)} />
+                    <View style={{ flex: 1, justifyContent: 'center' }}>
+                        <Button title="Confirm" onPress={this.confirm} />
                     </View>
                 </ScrollView>
             </KeyboardAvoidingView>
