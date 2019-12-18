@@ -42,7 +42,7 @@ class LineChart extends React.PureComponent {
             theme={VictoryTheme.material}
             containerComponent={<VictoryVoronoiContainer />}
           >
-          <VictoryLabel x={5} y={30} style={{fill: "#f0f0f0", fontSize: 11, fontStyle: "italic", fontFamily: "'Fira Sans', sans-serif"}} text={"Total amount \nof feedbacks"}/>
+          <VictoryLabel x={5} y={30} style={{fill: "#f0f0f0", fontSize: 11, fontStyle: "italic", fontFamily: "'Fira Sans', sans-serif"}} text={"Amount \nof feedbacks"}/>
             {feedbacksCount.length !== 0 ? (
               <VictoryLine
                 style={{
