@@ -38,7 +38,7 @@ class Bar extends React.PureComponent {
             <VictoryLabel x={270} y={325} style={{fill: "#f0f0f0", fontSize: 11, fontStyle: "italic", fontFamily: "'Fira Sans', sans-serif"}} text={"Operation \nsystems"}/>
             {osCount.length !== 0 ? (
               <VictoryBar
-                labelComponent={<VictoryTooltip />}
+                labelComponent={<VictoryTooltip style={{ fontFamily: "'Fira Sans', sans-serif" }} constrainToVisibleArea />}
                 barWidth={({ index }) => index * 2 + 75}
                 style={{
                   data: {
