@@ -21,6 +21,8 @@ class Bar extends React.PureComponent {
     const osCount = this.props.os;
     const osAndroid = osCount.map((item, index) => {return item.android});
     const osIos = osCount.map((item, index) => {return item.ios});
+    const iOSProportion = ((parseInt(osIos) / (parseInt(osAndroid) + parseInt(osIos))) * 100).toFixed(1)
+    const androidProportion = ((parseInt(osAndroid) / (parseInt(osAndroid) + parseInt(osIos))) * 100).toFixed(1)
 
     return (
       <View>
@@ -46,8 +48,8 @@ class Bar extends React.PureComponent {
                   x: ["Android", "iOS"]
                 }}
                 data={[
-                  { x: "Android", y: osAndroid, label: osAndroid },
-                  { x: "iOS", y: osIos, label: osIos }
+                  { x: "Android", y: osAndroid, label: androidProportion + "%" },
+                  { x: "iOS", y: osIos, label: iOSProportion + "%" }
                 ]}
               />
             ) : (
