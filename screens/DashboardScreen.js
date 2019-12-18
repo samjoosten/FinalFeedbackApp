@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, ScrollView, RefreshControl } from "react-native";
+import { View, Text, ScrollView, RefreshControl, Dimensions } from "react-native";
 import StatusBarAdjust from "../components/StatusBarAdjust";
 import styles from "../style";
 import Bar from "../components/Bar";
@@ -13,6 +13,7 @@ import {
 import ajax from "../ajax";
 import PieChartWithClickSlices from './../components/PieChartWithClickSlices';
 
+const scrH = Dimensions.get('window').height;
 
 const apiHost = ajax.getApiHost() + "/get";
 
@@ -148,7 +149,7 @@ class DashboardScreen extends Component {
                 />
             </View>
             <IndicatorViewPager
-              style={{ height: 550 }}
+              style={{ height: scrH*0.60 }}
               indicator={this._renderSmileyChartsTitleIndicator()}>
             <View style={styles.panel_Dashboard}>
               <Text style={[styles.text_bold, styles.titles_charts, styles.text_white]}>

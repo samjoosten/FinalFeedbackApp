@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     paddingLeft: 5,
     paddingTop: 10,
+    width: deviceWidth*0.25,
     color: "#fff"
   },
   boxes: {
