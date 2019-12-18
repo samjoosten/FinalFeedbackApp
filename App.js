@@ -11,6 +11,7 @@ import Templates from "./components/Templates";
 import TemplatesConfig from "./components/appconfiguration/TemplatesConfig";
 import DashboardApp from "./DashboardApp";
 import FeedbackDetailsScreen from "./screens/FeedbackDetailsScreen";
+import FeedbackListScreen from "./screens/FeedbackListScreen";
 
 console.disableYellowBox = true;
 const AppNavigator = createStackNavigator({
@@ -41,6 +42,13 @@ const AppNavigator = createStackNavigator({
   DashboardDomain: {
     screen: DashboardApp,
     path: "DashboardApp",
+    navigationOptions: {
+      header: null
+    }
+  },
+  FeedbackList: {
+    screen: FeedbackListScreen,
+    path: "screens/FeedbackListScreen",
     navigationOptions: {
       header: null
     }

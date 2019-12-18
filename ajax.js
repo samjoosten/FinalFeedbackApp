@@ -1,6 +1,6 @@
 //const apiHost = "http://10.24.24.244:8085";
 //const apiHost = "http://192.168.43.95:8085";
-//const apiHost = "http://10.24.24.47:8085";
+//const apiHost = "http://10.24.24.244:8085";
 // http://daf2e285.ngrok.io
 const apiHost = "http://daf2e285.ngrok.io";
 
@@ -45,11 +45,9 @@ export default {
   //     console.error(error);
   //   }
   // },
-  async getFeedbackToDeleteById(feedbackId) {
+  async getFeedbackToDeleteByTag(tagID) {
     try {
-      const response = await fetch(
-        apiHost + "/areyousure/delete/" + feedbackId
-      );
+      const response = await fetch(apiHost + "/areyousure/delete/" + tagID);
       const responseJson = await response.json();
       return responseJson;
     } catch (error) {
