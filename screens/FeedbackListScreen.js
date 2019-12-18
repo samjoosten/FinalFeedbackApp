@@ -168,6 +168,11 @@ class FeedbackListScreen extends React.Component {
                 <View>
                   <View style={styles.ptb10}>
                     <TouchableOpacity
+                      style={{
+                        borderBottomWidth: 0.5,
+                        borderBottomColor: "#ffffff5c",
+                        paddingBottom: 5
+                      }}
                       onPress={() =>
                         this.props.navigation.navigate("FeedbackDetails", {
                           tag: item.tag
