@@ -1,9 +1,11 @@
 import React from "react";
 import { BarChart, XAxis, YAxis, Grid } from "react-native-svg-charts";
-import { View } from "react-native";
+import { View, Dimensions } from "react-native";
 import { Text } from "react-native-svg";
 import { PropTypes } from "prop-types";
 import * as scale from "d3-scale";
+
+const scrW = Dimensions.get('window').width;
 
 class SmileysAvgPerApp extends React.PureComponent {
   static propTypes = {
@@ -46,7 +48,7 @@ class SmileysAvgPerApp extends React.PureComponent {
         <View
           style={{
             height: 250,
-            width: 385,
+            width: scrW*0.9,
             paddingLeft: 10,
             flexDirection: "row"
           }}
@@ -55,7 +57,7 @@ class SmileysAvgPerApp extends React.PureComponent {
             data={yax}
             style={{
               backgroundColor: "turquoise",
-              width: 25,
+              width: scrW*0.07,
               paddingHorizontal: 5
             }}
             svg={{ fontSize: 9, fill: "white" }}
@@ -67,7 +69,7 @@ class SmileysAvgPerApp extends React.PureComponent {
           />
 
           <BarChart
-            style={{ width: 360 }}
+            style={{ width: scrW*0.8 }}
             data={avg}
             yMin={0}
             gridMin={0}
@@ -80,9 +82,9 @@ class SmileysAvgPerApp extends React.PureComponent {
           </BarChart>
         </View>
 
-        <View style={{ height: 90, width: 385, marginLeft: 25, marginTop: 10 }}>
+        <View style={{ height: 90, width: scrW*0.9, marginLeft: 25, marginTop: 10 }}>
           <XAxis
-            style={{ height: 90, width: 360, alignSelf: "flex-end" }}
+            style={{ height: 90, width: scrW*0.8, alignSelf: "flex-end" }}
             data={app}
             scale={scale.scaleBand}
             xAccessor={({ item, index }) => item}
