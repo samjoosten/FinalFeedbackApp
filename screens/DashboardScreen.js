@@ -148,7 +148,7 @@ class DashboardScreen extends Component {
                 />
             </View>
             <IndicatorViewPager
-              style={{ height: 560 }}
+              style={{ height: 460 }}
               indicator={this._renderSmileyChartsTitleIndicator()}>
             <View style={styles.panel_Dashboard}>
               <Text style={[styles.text_bold, styles.titles_charts, styles.text_white]}>
@@ -172,7 +172,7 @@ class DashboardScreen extends Component {
             </View>
             </IndicatorViewPager>
             <IndicatorViewPager
-              style={{ height: 560 }}
+              style={{ height: 460 }}
               indicator={this._renderOSCatTitleIndicator()}>
             <View style={styles.panel_Dashboard}>
               <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
@@ -186,9 +186,7 @@ class DashboardScreen extends Component {
             </View>
             <View style={styles.panel_Dashboard}>
               <View>
-                <Text
-                  style={[styles.text_bold, styles.text_white, styles.ptb10]}
-                >
+                <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
                   Category distribution
                 </Text>
               <CategoryDistr
