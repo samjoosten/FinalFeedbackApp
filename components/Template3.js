@@ -5,7 +5,7 @@ import {
     StyleSheet,
     FlatList,
     Button,
-    Platform, ScrollView,
+    Platform, ScrollView, Alert,
 } from 'react-native';
 import StarRating from 'react-native-star-rating';
 import BugReportCheckBox from './BugReportCheckBox';
@@ -20,7 +20,7 @@ class Template3 extends Component {
         this.state = {
             starCount: {},
             feedback: "",
-            feedbackType: "",
+            feedbackType: "feedback",
             appName: props.appName,
             configData: props.config
         };
@@ -87,8 +87,8 @@ class Template3 extends Component {
                         template: 'Template3',
                         feedback: feedback,
                         app: appName,
-                        device: deviceInfo,
-                        os: deviceOs,
+                        device: Device.modelName,
+                        os: Platform.OS,
                         category: feedbackType,
                         stars: starValues[key].star,
                         starQuestion: starValues[key].question,
@@ -100,11 +100,13 @@ class Template3 extends Component {
                 .catch(err => console.log(JSON.stringify(err)));
         });
         this.props.navigation.navigate('Home');
+        Alert.alert("Feedback sent!")
 
     }
 
     addBugReport(text) {
         this.setState({ feedback: text })
+        this.setState({ feedbackType: 'bugreport' })
     }
 
 

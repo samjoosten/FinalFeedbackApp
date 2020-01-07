@@ -36,9 +36,11 @@ class CategoryDistr extends React.PureComponent {
               { x: " ", y: bugr[0] },
               { x: " ", y: sugg[0] }
             ]}
+            height={300}
             padAngle={1}
-            innerRadius={30}
+            innerRadius={10}
             labelRadius={100}
+            padding={{ top: 10, bottom: 10 }}
             colorScale={["turquoise", "lightgray", "#cc99ff"]}
           />
           ) : (
