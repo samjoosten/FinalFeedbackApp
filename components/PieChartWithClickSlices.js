@@ -4,6 +4,7 @@ import { PieChart } from "react-native-svg-charts";
 import PropTypes from "prop-types";
 
 const deviceWidth = Dimensions.get("window").width;
+const deviceHeight = Dimensions.get("window").height;
 
 class PieChartWithClickSlices extends React.PureComponent {
   static propTypes = {
@@ -82,11 +83,11 @@ class PieChartWithClickSlices extends React.PureComponent {
     });
 
     return (
-  <View style={{ width: deviceWidth, position: "relative" }}>
-      <View style={{ width: deviceWidth * 0.85, marginLeft: 10, marginTop: 10 }}>
+  <View style={{ width: deviceWidth, position: "relative", height: deviceHeight }}>
+      <View style={{ width: deviceWidth * 0.85 }}>
         <PieChart
           style={{ height: 300 }}
-          outerRadius={"90%"}
+          outerRadius={"80%"}
           innerRadius={"45%"}
           data={smileyData}
         ></PieChart>

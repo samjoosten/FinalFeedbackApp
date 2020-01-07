@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 export default StyleSheet.create({
   container: {
@@ -103,7 +103,7 @@ export default StyleSheet.create({
   panel_Dashboard: {
     backgroundColor: "#232e40",
     height: 460,
-    width: 380,
+    width: Dimensions.get("window").width,
     padding: 10,
     borderRadius: 5,
     marginBottom: 15,
