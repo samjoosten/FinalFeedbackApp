@@ -1,5 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 
+let scr = Dimensions.get("window").width;
+
 export default StyleSheet.create({
   container: {
     backgroundColor: "#1d2637",
@@ -16,7 +18,7 @@ export default StyleSheet.create({
     fontSize: 20
   },
   axis_titles: {
-    color: "#fff",
+    color: "#fff"
   },
   text_white: {
     color: "#fff"
@@ -60,6 +62,52 @@ export default StyleSheet.create({
   ptb15: {
     paddingVertical: 15
   },
+  login_container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#313131"
+  },
+  login_input: {
+    backgroundColor: "white",
+    width: scr * 0.75,
+    height: 52,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: "black",
+    fontSize: 16,
+    marginBottom: 10
+  },
+  login_button: {
+    width: scr * 0.75,
+    height: 52,
+    padding: 10,
+    marginBottom: 10,
+    borderRadius: 10,
+    backgroundColor: "#409eff"
+  },
+  login_btnText: {
+    textAlign: "center",
+    textAlignVertical: "center",
+    fontSize: 18,
+    color: "white"
+  },
+  profile_panel: {
+    backgroundColor: "#fff",
+    borderRadius: 5,
+    padding: 10,
+    margin: 15
+  },
+  profile_image: {
+    width: 150,
+    height: 150
+  },
+  btnAddPanel: {
+    marginHorizontal: 15,
+    flex: 1,
+    justifyContent: "center"
+  },
+  btnAddApp: {},
   feedbackStyle: {
     borderWidth: 0.5,
     borderTopColor: "#a5a5a53b",
