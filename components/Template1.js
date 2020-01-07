@@ -24,10 +24,8 @@ class Template1 extends Component {
         this.state = {
             modalVisible: false,
             text: '',
-            smile: 11,
+            smile: 10,
             image: '',
-            deviceInfo: '',
-            deviceOs: '',
             appName: props.appName,
             feedbackType: ''
         };
@@ -70,11 +68,11 @@ class Template1 extends Component {
         };
         // textfield cannot be empty
         if (this.state.text) {
-            // set the device info and os in state
-            this.setState({
-                deviceInfo: Device.modelName,
-                deviceOs: Platform.OS
-            });
+
+            // set the device info and os in variables
+            var deviceInfo = Device.modelName;
+            var deviceOs = Platform.OS;
+
             // post the user feedback to the api
             fetch(Constants.url + 'post', {
                 method: 'POST',
@@ -83,9 +81,9 @@ class Template1 extends Component {
                     feedback: this.state.text,
                     app: this.state.appName,
                     image: createFormData(this.state.image),
-                    smiley: this.state.smile,
-                    device: this.state.deviceInfo,
-                    os: this.state.deviceOs,
+                    rating: this.state.smile,
+                    device: deviceInfo,
+                    os: deviceOs,
                     category: this.state.feedbackType,
                     tag: feedbackTag
 

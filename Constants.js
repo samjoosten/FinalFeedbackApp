@@ -5,7 +5,7 @@ export default class Constants {
     //static url = 'http://7cf324aa.ngrok.io/'
 
     //team frontend
-    static url = 'http://daf2e285.ngrok.io/';
+    static url = 'http://3785ce28.ngrok.io/';
 
     static makeId() {
         var result = '';
