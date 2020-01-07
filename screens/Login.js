@@ -8,8 +8,9 @@ import {
   Text,
   Dimensions
 } from "react-native";
+import styles from "../style";
 
-let scr = Dimensions.get('window').width;
+let scr = Dimensions.get("window").width;
 
 export default class Login extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -79,14 +80,14 @@ export default class Login extends Component {
 
   render() {
     return (
-      <KeyboardAvoidingView style={styles.container} behavior="padding">
-        <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.login_container} behavior="padding">
+        <View>
           <TextInput
             value={this.state.name}
             onChangeText={name => this.setState({ name })}
             placeholder={"Name"}
             placeholderTextColor="#C3C3C3"
-            style={styles.input}
+            style={styles.login_input}
           />
           <TextInput
             value={this.state.password}
@@ -94,65 +95,16 @@ export default class Login extends Component {
             placeholder={"Password"}
             placeholderTextColor="#C3C3C3"
             secureTextEntry={true}
-            style={styles.input}
+            style={styles.login_input}
           />
-
-          <View style={styles.row}>
-            <TouchableHighlight
-              style={styles.button}
-              onPress={this.onLogin.bind(this)}
-            >
-              <Text style={styles.btnText}>Login</Text>
-            </TouchableHighlight>
-            <TouchableHighlight
-              style={[styles.button, { padding: 0 }]}
-              onPress={() => this.props.navigation.navigate("Register")}
-            >
-              <Text style={styles.btnText}>Create{"\n"}Account</Text>
-            </TouchableHighlight>
-          </View>
+          <TouchableHighlight
+            style={styles.login_button}
+            onPress={this.onLogin.bind(this)}
+          >
+            <Text style={styles.login_btnText}>Login</Text>
+          </TouchableHighlight>
         </View>
       </KeyboardAvoidingView>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#313131"
-  },
-  row: {
-    width: 300,
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
-  input: {
-    backgroundColor: "white",
-    width: scr*0.75,
-    height: 52,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: "black",
-    fontSize: 16,
-    marginBottom: 10
-  },
-  button: {
-    width: scr*0.35,
-    height: 52,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: "black",
-    marginBottom: 10,
-    borderRadius: 10,
-    backgroundColor: "#409eff"
-  },
-  btnText: {
-    textAlign: "center",
-    textAlignVertical: "center",
-    fontSize: 18,
-    color: "white"
-  }
-});
