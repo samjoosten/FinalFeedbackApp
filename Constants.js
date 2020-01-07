@@ -2,7 +2,7 @@ export default class Constants {
     //don't forget slashes!!!!
 
     //heidi
-    //static url = 'http://7cf324aa.ngrok.io/'
+    //static url = 'http://3785ce28.ngrok.io/'
 
     //team frontend
     static url = 'http://3785ce28.ngrok.io/';

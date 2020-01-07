@@ -25,7 +25,7 @@ class Template2 extends Component {
             buttonActive: true,
             loadTextInput: false,
             loadBugInput: false,
-            feedbackType: "",
+            feedbackType: "feedback",
             feedback: "",
             appName: props.appName,
             configData: props.config,
@@ -56,6 +56,7 @@ class Template2 extends Component {
 
     addBugReportText(text) {
         this.setState({ feedback: text })
+        this.setState({ feedbackType: 'bugreport' })
     }
 
     sendFeedback() {
@@ -70,6 +71,9 @@ class Template2 extends Component {
                 } else {
                     this.setState({ feedbackType: "feedback" })
                 }
+                // set the device info and os in variables
+                var deviceInfo = Device.modelName;
+                var deviceOs = Platform.OS;
 
                 // post the user feedback to the api
 
@@ -79,8 +83,8 @@ class Template2 extends Component {
                         template: 'Template2',
                         feedback: this.state.feedback,
                         app: this.state.appName,
-                        device: Device.modelName,
-                        os: Platform.OS,
+                        device: deviceInfo,
+                        os: deviceOs,
                         category: this.state.feedbackType,
                         rating: this.state.rating,
                         feature: this.state.featurePick,

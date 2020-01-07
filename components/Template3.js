@@ -20,7 +20,7 @@ class Template3 extends Component {
         this.state = {
             starCount: {},
             feedback: "",
-            feedbackType: "",
+            feedbackType: "feedback",
             appName: props.appName,
             configData: props.config
         };
@@ -55,6 +55,9 @@ class Template3 extends Component {
         } else {
             this.setState({ feedbackType: "feedback" })
         }
+        // set the device info and os in state
+        var deviceInfo = Device.modelName;
+        var deviceOs = Platform.OS;
         // post the user feedback to the api
         var starValues = this.state.starCount;
         var appName = this.state.appName;
@@ -96,13 +99,14 @@ class Template3 extends Component {
                 .then(res => console.log(JSON.stringify(res)))
                 .catch(err => console.log(JSON.stringify(err)));
         });
-        this.props.navigation.navigate('Home'); 
+        this.props.navigation.navigate('Home');
         Alert.alert("Feedback sent!")
 
     }
 
     addBugReport(text) {
         this.setState({ feedback: text })
+        this.setState({ feedbackType: 'bugreport' })
     }
 
 
