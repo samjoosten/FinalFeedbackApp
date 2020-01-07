@@ -158,7 +158,7 @@ class DashboardScreen extends Component {
           <IndicatorViewPager
               style={styles.panel_Dashboard}
               indicator={this._renderLineChartsTitleIndicator()}>
-            <View style={styles.panel_Dashboard}>
+            <View>
               <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
                 Feedback amount per year
               </Text>         
@@ -168,7 +168,7 @@ class DashboardScreen extends Component {
                 onPullDownRefresh={this.handleRefresh} 
                 />
             </View>
-            <View style={styles.panel_Dashboard}>
+            <View>
               <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
                 Feedback amount per year
               </Text>         

@@ -38,6 +38,7 @@ class Bar extends React.PureComponent {
             <VictoryLabel x={290} y={325} style={{fill: "#ECEFF1", fontSize: 11, fontStyle: "italic"}} text={"Operation \nsystems"}/>
             {osCount.length !== 0 ? (
               <VictoryBar
+                animate={{ duration: 2000, easing: "bounce" }}
                 labelComponent={<VictoryTooltip constrainToVisibleArea />}
                 barWidth={({ index }) => index * 2 + 75}
                 style={{
