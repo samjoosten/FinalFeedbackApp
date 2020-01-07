@@ -5,7 +5,7 @@ import {
     StyleSheet,
     FlatList,
     Button,
-    Platform, ScrollView,
+    Platform, ScrollView, Alert,
 } from 'react-native';
 import StarRating from 'react-native-star-rating';
 import BugReportCheckBox from './BugReportCheckBox';
@@ -55,9 +55,6 @@ class Template3 extends Component {
         } else {
             this.setState({ feedbackType: "feedback" })
         }
-        // set the device info and os in state
-        var deviceInfo = Device.modelName;
-        var deviceOs = Platform.OS;
         // post the user feedback to the api
         var starValues = this.state.starCount;
         var appName = this.state.appName;
@@ -87,8 +84,8 @@ class Template3 extends Component {
                         template: 'Template3',
                         feedback: feedback,
                         app: appName,
-                        device: deviceInfo,
-                        os: deviceOs,
+                        device: Device.modelName,
+                        os: Platform.OS,
                         category: feedbackType,
                         stars: starValues[key].star,
                         starQuestion: starValues[key].question,
@@ -99,7 +96,8 @@ class Template3 extends Component {
                 .then(res => console.log(JSON.stringify(res)))
                 .catch(err => console.log(JSON.stringify(err)));
         });
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('Home'); 
+        Alert.alert("Feedback sent!")
 
     }
 

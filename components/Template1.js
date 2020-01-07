@@ -53,6 +53,7 @@ class Template1 extends Component {
 
 
     submit() {
+        console.log("device model:" + Device.modelName)
         var feedbackTag = Constants.makeId();
         // create form data for screenshot
         const createFormData = (photo) => {
@@ -70,11 +71,6 @@ class Template1 extends Component {
         };
         // textfield cannot be empty
         if (this.state.text) {
-            // set the device info and os in state
-            this.setState({
-                deviceInfo: Device.modelName,
-                deviceOs: Platform.OS
-            });
             // post the user feedback to the api
             fetch(Constants.url + 'post', {
                 method: 'POST',
@@ -84,8 +80,8 @@ class Template1 extends Component {
                     app: this.state.appName,
                     image: createFormData(this.state.image),
                     smiley: this.state.smile,
-                    device: this.state.deviceInfo,
-                    os: this.state.deviceOs,
+                    device: Device.modelName,
+                    os: Platform.OS,
                     category: this.state.feedbackType,
                     tag: feedbackTag
 
@@ -94,6 +90,7 @@ class Template1 extends Component {
                 .then(res => console.log(JSON.stringify(res)))
                 .catch(err => console.log(JSON.stringify(err)));
             this.setState({ text: '' });
+            Alert.alert("Feedback sent!")
             this.props.navigation.navigate('Home');
             // if (Platform.OS === "android") {
             //     this.showToast()

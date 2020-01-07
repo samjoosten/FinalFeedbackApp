@@ -70,11 +70,7 @@ class Template2 extends Component {
                 } else {
                     this.setState({ feedbackType: "feedback" })
                 }
-                // set the device info and os in state
-                this.setState({
-                    deviceInfo: Device.modelName,
-                    deviceOs: Platform.OS
-                });
+
                 // post the user feedback to the api
 
                 fetch(Constants.url + 'post', {
@@ -83,8 +79,8 @@ class Template2 extends Component {
                         template: 'Template2',
                         feedback: this.state.feedback,
                         app: this.state.appName,
-                        device: this.state.deviceInfo,
-                        os: this.state.deviceOs,
+                        device: Device.modelName,
+                        os: Platform.OS,
                         category: this.state.feedbackType,
                         rating: this.state.rating,
                         feature: this.state.featurePick,
@@ -95,6 +91,7 @@ class Template2 extends Component {
                 })
                     .then(res => console.log(JSON.stringify(res)))
                     .catch(err => console.log(JSON.stringify(err)));
+                Alert.alert("Feedback sent!")
                 this.props.navigation.navigate('Home');
             } else {
                 Alert.alert('You must pick a feature');
