@@ -150,12 +150,24 @@ class FeedbackDetailsScreen extends React.Component {
             </View>
             <View style={styles.panel}>
               <View style={[styles.panel_header, styles.pos_rel]}>
-                <Text style={[styles.text_white, styles.h2, styles.text_bold]}>
-                  User's mood rate : {rating}
-                </Text>
-                <View style={styles.smiley_icon_position}>
-                  <SmileyDetailsScreen userInput={rating} />
-                </View>
+                {question0.toString().length > 0 ? (
+                  <Text
+                    style={[styles.text_white, styles.h2, styles.text_bold]}
+                  >
+                    User's rating...
+                  </Text>
+                ) : (
+                  <>
+                    <Text
+                      style={[styles.text_white, styles.h2, styles.text_bold]}
+                    >
+                      User's mood rate : {rating}
+                    </Text>
+                    <View style={styles.smiley_icon_position}>
+                      <SmileyDetailsScreen userInput={rating} />
+                    </View>
+                  </>
+                )}
               </View>
               <View style={[styles.hr, styles.mt15]} />
               <View style={styles.ptb10}>

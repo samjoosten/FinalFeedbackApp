@@ -1,14 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Alert, BackHandler } from "react-native";
 import { BottomNavigation } from "react-native-paper";
 
 import DashboardScreen from "./screens/DashboardScreen";
 import FeedbackListScreen from "./screens/FeedbackListScreen";
 import QuestionScreen from "./screens/QuestionScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 
 const DashboardRoute = () => <DashboardScreen />;
 const FeedbackRoute = () => <FeedbackListScreen />;
 const QuestionsRoute = () => <QuestionScreen />;
+const ProfileRoute = () => <ProfileScreen />;
 
 export default class App extends React.Component {
   state = {
@@ -31,6 +33,12 @@ export default class App extends React.Component {
         title: "Questions",
         icon: "comment-question-outline",
         color: "#181f2d"
+      },
+      {
+        key: "profile",
+        title: "Profile",
+        icon: "account",
+        color: "#181f2d"
       }
     ]
   };
@@ -40,7 +48,8 @@ export default class App extends React.Component {
   _renderScene = BottomNavigation.SceneMap({
     dashboard: DashboardRoute,
     feedbackList: FeedbackRoute,
-    questions: QuestionsRoute
+    questions: QuestionsRoute,
+    profile: ProfileRoute
   });
 
   render() {
