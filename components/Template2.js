@@ -66,6 +66,11 @@ class Template2 extends Component {
             var chosenFeature = this.state.featurePick;
             if (chosenFeature !== '') {
 
+                if (this.state.feedback !== "") {
+                    this.setState({ feedbackType: "bugreport" })
+                } else {
+                    this.setState({ feedbackType: "feedback" })
+                }
                 // set the device info and os in variables
                 var deviceInfo = Device.modelName;
                 var deviceOs = Platform.OS;
@@ -90,6 +95,7 @@ class Template2 extends Component {
                 })
                     .then(res => console.log(JSON.stringify(res)))
                     .catch(err => console.log(JSON.stringify(err)));
+                Alert.alert("Feedback sent!")
                 this.props.navigation.navigate('Home');
             } else {
                 Alert.alert('You must pick a feature');

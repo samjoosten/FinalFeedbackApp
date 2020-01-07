@@ -51,6 +51,7 @@ class Template1 extends Component {
 
 
     submit() {
+        console.log("device model:" + Device.modelName)
         var feedbackTag = Constants.makeId();
         // create form data for screenshot
         const createFormData = (photo) => {
@@ -68,7 +69,6 @@ class Template1 extends Component {
         };
         // textfield cannot be empty
         if (this.state.text) {
-
             // set the device info and os in variables
             var deviceInfo = Device.modelName;
             var deviceOs = Platform.OS;
@@ -81,6 +81,7 @@ class Template1 extends Component {
                     feedback: this.state.text,
                     app: this.state.appName,
                     image: createFormData(this.state.image),
+                    smiley: this.state.smile,
                     rating: this.state.smile,
                     device: deviceInfo,
                     os: deviceOs,
@@ -92,6 +93,7 @@ class Template1 extends Component {
                 .then(res => console.log(JSON.stringify(res)))
                 .catch(err => console.log(JSON.stringify(err)));
             this.setState({ text: '' });
+            Alert.alert("Feedback sent!")
             this.props.navigation.navigate('Home');
             // if (Platform.OS === "android") {
             //     this.showToast()
