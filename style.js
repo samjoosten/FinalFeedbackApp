@@ -103,7 +103,7 @@ export default StyleSheet.create({
   panel_Dashboard: {
     backgroundColor: "#232e40",
     height: 500,
-    width: 400,
+    width: 500,
     padding: 10,
     borderRadius: 5,
     marginBottom: 15,
