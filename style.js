@@ -1,6 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
 
 let scr = Dimensions.get("window").width;
+let centerWidth = 0.75;
 
 export default StyleSheet.create({
   container: {
@@ -56,11 +57,38 @@ export default StyleSheet.create({
   mtb25: {
     marginVertical: 25
   },
+  p10: {
+    padding: 10
+  },
+  radius10: {
+    borderRadius: 10
+  },
   mb50: {
     marginBottom: 220
   },
   ptb15: {
     paddingVertical: 15
+  },
+  mb15: {
+    marginBottom: 15
+  },
+  bg_white: {
+    backgroundColor: "#fff"
+  },
+  containerCenter: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  input_registerApp: {
+    width: scr * centerWidth,
+    height: 45,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    marginBottom: 10,
+    backgroundColor: "#FFFFFF",
+    paddingLeft: 5,
+    borderRadius: 5
   },
   login_container: {
     flex: 1,
@@ -69,8 +97,8 @@ export default StyleSheet.create({
     backgroundColor: "#313131"
   },
   login_input: {
-    backgroundColor: "white",
-    width: scr * 0.75,
+    backgroundColor: "#fff",
+    width: scr * centerWidth,
     height: 52,
     padding: 10,
     borderWidth: 1,
@@ -79,7 +107,7 @@ export default StyleSheet.create({
     marginBottom: 10
   },
   login_button: {
-    width: scr * 0.75,
+    width: scr * centerWidth,
     height: 52,
     padding: 10,
     marginBottom: 10,
