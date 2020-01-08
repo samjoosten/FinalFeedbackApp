@@ -27,6 +27,13 @@ const AppNavigator = createStackNavigator({
     screen: Register,
     path: "screens/Register"
   },
+  RegisterApp: {
+    screen: RegisterAppScreen,
+    path: "screens/RegisterAppScreen",
+    navigationOptions: {
+      header: null
+    }
+  },
   Home: {
     screen: HomeScreen,
     path: "home"

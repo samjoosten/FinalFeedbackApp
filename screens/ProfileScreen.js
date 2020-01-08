@@ -14,7 +14,7 @@ class ProfileScreen extends React.Component {
           <Button
             title="Register an app"
             style={styles.btnAddApp}
-            onPress={() => this.props.navigation.navigate("Register")}
+            onPress={() => this.props.navigation.navigate("RegisterApp")}
           />
         </View>
       </View>
