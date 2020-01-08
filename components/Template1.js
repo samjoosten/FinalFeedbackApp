@@ -61,7 +61,7 @@ class Template1 extends Component {
         });
     
         if (!result.cancelled) {
-          this.setState({ image: result.uri })
+          this.setState({ image: true })
             
           let base64Img = `data:image/jpg;base64,${result.base64}`
         
@@ -103,7 +103,6 @@ class Template1 extends Component {
                     template: 'Template1',
                     feedback: this.state.text,
                     app: this.state.appName,
-                    image: "",
                     smiley: this.state.smile,
                     rating: this.state.smile,
                     device: deviceInfo,
