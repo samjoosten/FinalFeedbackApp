@@ -15,8 +15,12 @@ import * as Device from 'expo-device';
 import FeedbackPicker from './FeedbackPicker'
 import SmileSwitcher from './smileform/SmileSwitcher';
 import Constants from '../Constants';
-import ImagePickerButton from './ImagePickerButton';
+import * as ImagePicker from 'expo-image-picker';
 
+const apiUrl = 'https://api.cloudinary.com/v1_1/team24icloud/image/upload';  
+
+var feedbackTag = "";
+var imgData = {};
 
 class Template1 extends Component {
     constructor(props) {
@@ -25,7 +29,7 @@ class Template1 extends Component {
             modalVisible: false,
             text: '',
             smile: 10,
-            image: '',
+            image: null,
             appName: props.appName,
             feedbackType: ''
         };
@@ -49,24 +53,43 @@ class Template1 extends Component {
         }
     };
 
+    pickImage = async () => {
+        feedbackTag = Constants.makeId();
+        let result = await ImagePicker.launchImageLibraryAsync({
+          allowsEditing: true,
+          base64: true
+        });
+    
+        if (!result.cancelled) {
+          this.setState({ image: result.uri })
+            
+          let base64Img = `data:image/jpg;base64,${result.base64}`
+        
+          imgData = {
+            "file": base64Img,
+            "public_id": feedbackTag,
+            "upload_preset": "tomko6xf",
+          }
+        }
+    }
 
     submit() {
         console.log("device model:" + Device.modelName)
-        var feedbackTag = Constants.makeId();
-        // create form data for screenshot
-        const createFormData = (photo) => {
-            if (!photo) return '';
-            const data = new FormData();
 
-            data.append("photo", {
-                name: photo.fileName,
-                type: photo.type,
-                uri:
-                    Platform.OS === "android" ? photo.uri : photo.uri.replace("file://", "")
-            });
+        //post image
+        fetch(apiUrl, {
+            body: JSON.stringify(imgData),
+            headers: {
+              'content-type': 'application/json'
+            },
+            method: 'POST',
+          }).then(async r => {
+              let data = await r.json()
+              console.log(data.secure_url)
+              return data.secure_url
+          }).catch(err=>console.log(err))
 
-            return data;
-        };
+
         // textfield cannot be empty
         if (this.state.text) {
             // set the device info and os in variables
@@ -80,7 +103,7 @@ class Template1 extends Component {
                     template: 'Template1',
                     feedback: this.state.text,
                     app: this.state.appName,
-                    image: createFormData(this.state.image),
+                    image: "",
                     smiley: this.state.smile,
                     rating: this.state.smile,
                     device: deviceInfo,
@@ -93,7 +116,9 @@ class Template1 extends Component {
                 .then(res => console.log(JSON.stringify(res)))
                 .catch(err => console.log(JSON.stringify(err)));
             this.setState({ text: '' });
+
             Alert.alert("Feedback sent!")
+            
             this.props.navigation.navigate('Home');
             // if (Platform.OS === "android") {
             //     this.showToast()
@@ -103,8 +128,6 @@ class Template1 extends Component {
         } else if (this.state.text === '') {
             Alert.alert("Please fill in the textfield")
         }
-
-
     }
 
     setImage(source) {
@@ -134,9 +157,13 @@ class Template1 extends Component {
                             value={this.state.text} blurOnSubmit={true} scrollEnable={true}
                         />
                     </View>
-                    <ImagePickerButton style={[styles.button, { backgroundColor: 'orange' }]}
-                        setImage={this.setImage}
-                    ></ImagePickerButton>
+                    <TouchableHighlight
+                        style={[styles.button, { backgroundColor: '#006400', width: Dimensions.get('window').width/2,
+                    }]}
+                        onPress={()=>this.pickImage()}
+                        underlayColor="#74b9ff">
+                        <Text style={styles.btnText}>Choose a photo</Text>
+                    </TouchableHighlight>
                     <SmileSwitcher
                         smile={this.state.smile}
                         setSmiley={this.setSmiley}

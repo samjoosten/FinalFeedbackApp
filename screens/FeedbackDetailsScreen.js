@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { View, Text, ScrollView, Alert } from "react-native";
+import { Image, View, Text, ScrollView, Alert } from "react-native";
 import { withNavigation } from "react-navigation";
-import { TouchableHighlight } from "react-native-gesture-handler";
+import { TouchableHighlight, TouchableOpacity } from "react-native-gesture-handler";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import StarRating from "react-native-star-rating";
 
@@ -121,6 +121,10 @@ class FeedbackDetailsScreen extends React.Component {
         return null;
       }
     });
+
+    const tagID = this.props.navigation.getParam("tag");
+    const imgUrl = 'https://res.cloudinary.com/team24icloud/image/upload/c_thumb,w_150,g_face/v1578400101/'+tagID+'.jpg';
+
     return (
       <View style={styles.container}>
         <StatusBarAdjust />
@@ -150,24 +154,12 @@ class FeedbackDetailsScreen extends React.Component {
             </View>
             <View style={styles.panel}>
               <View style={[styles.panel_header, styles.pos_rel]}>
-                {question0.toString().length > 0 ? (
-                  <Text
-                    style={[styles.text_white, styles.h2, styles.text_bold]}
-                  >
-                    User's rating...
-                  </Text>
-                ) : (
-                  <>
-                    <Text
-                      style={[styles.text_white, styles.h2, styles.text_bold]}
-                    >
-                      User's mood rate : {rating}
-                    </Text>
-                    <View style={styles.smiley_icon_position}>
-                      <SmileyDetailsScreen userInput={rating} />
-                    </View>
-                  </>
-                )}
+                <Text style={[styles.text_white, styles.h2, styles.text_bold]}>
+                  User's mood rate : {rating}
+                </Text>
+                <View style={styles.smiley_icon_position}>
+                  <SmileyDetailsScreen userInput={rating} />
+                </View>
               </View>
               <View style={[styles.hr, styles.mt15]} />
               <View style={styles.ptb10}>
@@ -260,7 +252,17 @@ class FeedbackDetailsScreen extends React.Component {
                 <View />
               )}
             </View>
-            <View>
+            <TouchableOpacity onPress={() => {
+              this.props.navigation.navigate('ImageFullScreen', {
+                      tag: tagID
+                    });
+                  }}>
+                  <Image
+                    style={{width: 150, height: 150, alignSelf: 'center'}}
+                    source={{uri: imgUrl}}
+                  />
+            </TouchableOpacity>
+            <View style={{marginTop: 15}}>
               <TouchableHighlight
                 onPress={() =>
                   Alert.alert(
@@ -304,5 +306,4 @@ class FeedbackDetailsScreen extends React.Component {
     );
   }
 }
-
 export default withNavigation(FeedbackDetailsScreen);

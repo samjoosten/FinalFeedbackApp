@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Animated } from "react-native";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
@@ -12,6 +11,7 @@ import TemplatesConfig from "./components/appconfiguration/TemplatesConfig";
 import DashboardApp from "./DashboardApp";
 import FeedbackDetailsScreen from "./screens/FeedbackDetailsScreen";
 import FeedbackListScreen from "./screens/FeedbackListScreen";
+import ImageFullScreen from "./screens/ImageFullScreen";
 
 console.disableYellowBox = true;
 const AppNavigator = createStackNavigator({
@@ -56,6 +56,13 @@ const AppNavigator = createStackNavigator({
   FeedbackDetails: {
     screen: FeedbackDetailsScreen,
     path: "screens/FeedbackDetailsScreen",
+    navigationOptions: {
+      header: null
+    }
+  },
+  ImageFullScreen: {
+    screen: ImageFullScreen,
+    path: "screens/ImageFullScreen",
     navigationOptions: {
       header: null
     }
