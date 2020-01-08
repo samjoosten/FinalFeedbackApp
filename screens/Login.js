@@ -35,10 +35,6 @@ export default class Login extends Component {
   }
 
   onLogin() {
-    //check name and password
-
-    // this.props.navigation.navigate("DashboardDomain");
-
     const account = {
       name: this.state.name,
       password: this.state.password
@@ -53,30 +49,6 @@ export default class Login extends Component {
       alert("Invalid name or password");
       return;
     }
-
-    // const url = Constants.url + 'login';
-
-    // fetch(url, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(account)
-    // })
-    //     .then((response) => response.json())
-    //     .then((responseJson) => {
-
-    //         //check if passwords are the same
-    //         if(responseJson.result){
-    //             this.loginSuccessful();
-    //         }else{
-    //             alert('login failed');
-    //         }
-    //     })
-    //     .catch((error) => {
-    //         console.error(JSON.stringify(error));
-    //     });
   }
 
   //todo: go to next screen.
