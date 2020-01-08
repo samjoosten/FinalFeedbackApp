@@ -4,6 +4,21 @@ let scr = Dimensions.get("window").width;
 let centerWidth = 0.75;
 
 export default StyleSheet.create({
+    pie_chart_text: {
+        fontSize: 14,
+        fontWeight: "bold",
+        paddingLeft: 5,
+        paddingTop: 10,
+        width: deviceWidth*0.25,
+        color: "#fff"
+    },
+    pie_chart_boxes: {
+        paddingBottom: 10,
+        marginLeft: 50,
+        flexDirection: "row",
+        width: deviceWidth / 5,
+        height: 50
+    },
     container: {
         backgroundColor: "#1d2637",
         height: "100%"

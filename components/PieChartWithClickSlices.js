@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, Dimensions, StyleSheet, Image } from "react-native";
 import { PieChart } from "react-native-svg-charts";
 import PropTypes from "prop-types";
+import styles from "../style";
 
 const deviceWidth = Dimensions.get("window").width;
 const deviceHeight = Dimensions.get("window").height;
@@ -120,7 +121,7 @@ class PieChartWithClickSlices extends React.PureComponent {
           }}
         >
           <View style={{ flexDirection: "row" }}>
-            <View style={styles.boxes}>
+            <View style={styles.pie_chart_boxes}>
             <Image
               style={{width: 23, height: 23, marginTop: 7 }}
               source={require('../assets/SmileyRange10.png')}  
@@ -133,9 +134,9 @@ class PieChartWithClickSlices extends React.PureComponent {
                       marginTop: 7
                     }}
                   />
-                  <Text style={styles.text}>Excellent</Text>
+                  <Text style={styles.pie_chart_text}>Excellent</Text>
             </View>
-            <View style={styles.boxes}>
+            <View style={styles.pie_chart_boxes}>
             <Image
               style={{width: 20, height: 20, marginTop: 7 }}
               source={require('../assets/SmileyRange1.png')}  
@@ -148,7 +149,7 @@ class PieChartWithClickSlices extends React.PureComponent {
                       marginTop: 7
                     }}
                   />
-                  <Text style={styles.text}>Miserable</Text>
+                  <Text style={styles.pie_chart_text}>Miserable</Text>
             </View>
           </View>
       </View>
@@ -156,23 +157,5 @@ class PieChartWithClickSlices extends React.PureComponent {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 14,
-    fontWeight: "bold",
-    paddingLeft: 5,
-    paddingTop: 10,
-    width: deviceWidth*0.25,
-    color: "#fff"
-  },
-  boxes: {
-    paddingBottom: 10,
-    marginLeft: 50,
-    flexDirection: "row",
-    width: deviceWidth / 5,
-    height: 50
-  }
-});
 
 export default PieChartWithClickSlices;
