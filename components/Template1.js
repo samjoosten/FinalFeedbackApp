@@ -165,8 +165,7 @@ class Template1 extends Component {
                     </TouchableHighlight>
                     <SmileSwitcher
                         smile={this.state.smile}
-                        setSmiley={this.setSmiley}
-                    >
+                        setSmiley={this.setSmiley}>
                     </SmileSwitcher>
                     <TouchableHighlight style={[styles.button, { backgroundColor: '#0984e3' }]}
                         onPress={this.submit}
@@ -208,6 +207,7 @@ const styles = StyleSheet.create({
         textAlignVertical: 'top',
     },
     button: {
+        marginTop: 20,
         marginBottom: 20,
         padding: 10,
         alignSelf: 'center',

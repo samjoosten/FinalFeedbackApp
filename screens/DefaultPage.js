@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Dimensions, Image, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Dimensions, Platform, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default class DefaultPage extends Component {
     static navigationOptions = {
@@ -16,10 +16,13 @@ export default class DefaultPage extends Component {
             <View style={defaultStyles.container}>
                 <View style={defaultStyles.btnContainer}>
                     <Text style={defaultStyles.header}>Are you a guest or an admin?</Text>
-                    <TouchableOpacity style={[defaultStyles.button, { backgroundColor: '#74b9ff' }]}
+                    <TouchableOpacity 
+                        style={[defaultStyles.button, { backgroundColor: '#74b9ff' }]}
                         onPress={() => this.props.navigation.navigate('Home')}>
                         <Text style={defaultStyles.btnText}>Guest</Text>
-                    </TouchableOpacity><TouchableOpacity style={[defaultStyles.button, { backgroundColor: '#74b9ff' }]}
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                        style={[defaultStyles.button, { backgroundColor: '#74b9ff' }]}
                         onPress={() => this.props.navigation.navigate('Login')}>
                         <Text style={defaultStyles.btnText}>Admin</Text>
                     </TouchableOpacity>
