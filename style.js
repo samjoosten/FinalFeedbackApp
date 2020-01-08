@@ -9,14 +9,14 @@ export default StyleSheet.create({
         fontWeight: "bold",
         paddingLeft: 5,
         paddingTop: 10,
-        width: deviceWidth*0.25,
+        width: scr*0.25,
         color: "#fff"
     },
     pie_chart_boxes: {
         paddingBottom: 10,
         marginLeft: 50,
         flexDirection: "row",
-        width: deviceWidth / 5,
+        width: scr / 5,
         height: 50
     },
     container: {

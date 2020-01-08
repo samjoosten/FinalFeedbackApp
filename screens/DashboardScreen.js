@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { View, Text, ScrollView, RefreshControl } from "react-native";
-import StatusBarAdjust from "../components/StatusBarAdjust";
-import styles from "../style";
 import Bar from "../components/Bar";
+import styles from "../style";
 import CategoryDistr from "../components/CategoryDistr";
 import SmileysAvgPerApp from "../components/SmileysAvgPerApp";
-import LineChart2020 from "../components/LineChart2020";
 import LineChart2019 from "../components/LineChart2019";
 import {
   IndicatorViewPager,
@@ -13,35 +11,36 @@ import {
 } from 'rn-viewpager';
 import ajax from "../ajax";
 import PieChartWithClickSlices from './../components/PieChartWithClickSlices';
-
+import LineChart2020 from './../components/LineChart2020';
 
 const apiHost = ajax.getApiHost() + "/get";
 
-/*
-Dashboard screen showing the charts in Carousel Views, implementing refresh control, 
-contains methods to fetch from REST server and passes the callback as props to the charts
-*/
-
 class DashboardScreen extends Component {
-  state = {
-    feedbacksPerYear2020: [],
-    feedbacksPerYear2019: [],
-    months: [],
-    os: [],
-    loading: false,
-    smileys: [],
-    refreshing: false,
-    avgPerApp: [],
-    catDistr: []
-  };
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      feedbacksPerYear2019: [],
+      feedbacksPerYear2020: [],
+      months: [],
+      os: this.getData(),
+      loading: false,
+      smileys: [],
+      refreshing: false,
+      avgPerApp: [],
+      catDistr: []
+    };
+  }
 
   componentDidMount() {
     this._getFeedbackAmountPerYear2019();
-    this._getFeedbackAmountPerYear2020();
     this._getOsAmount();
     this._getSmileyRangeAmount();
     this._getAvgPerApp();
     this._getCatDistr();
+  }
+
+  componentDidUpdate(){
   }
 
   _getCatDistr = async () => {
@@ -75,7 +74,7 @@ class DashboardScreen extends Component {
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
-          feedbacksPerYear2019: responseJson
+          feedbacksPerYear: responseJson
         });
       })
       .catch(error => {
@@ -88,7 +87,7 @@ class DashboardScreen extends Component {
       .then(response => response.json())
       .then(responseJson => {
         this.setState({
-          feedbacksPerYear2020: responseJson
+          feedbacksPerYear: responseJson
         });
       })
       .catch(error => {
@@ -109,6 +108,17 @@ class DashboardScreen extends Component {
       });
   };
 
+  componentWillUnmount() {
+    window.clearInterval(this.setStateInterval);
+  }
+
+  getData() {
+    const bars = random(6, 10);
+    return range(bars).map((bar) => {
+      return {x: bar + 1, y: random(2, 10)};
+    });
+  }
+
   _getSmileyRangeAmount = async () => {
     await fetch(apiHost + "/linecount/smiley", { method: "GET" })
       .then(response => response.json())
@@ -128,22 +138,22 @@ class DashboardScreen extends Component {
     this._getOsAmount();
     this._getSmileyRangeAmount();
     this._getAvgPerApp();
-    this._getFeedbackAmountPerYear2019();
-    this._getFeedbackAmountPerYear2020().then(() => {
+    this._getFeedbackAmountPerYear2020();
+    this._getFeedbackAmountPerYear2019().then(() => {
       this.setState({ refreshing: false });
     });
   };
 
   render() {
-    const feedbacksPerYear2020 = this.state.feedbacksPerYear2020;
     const feedbacksPerYear2019 = this.state.feedbacksPerYear2019;
+    const feedbacksPerYear2020 = this.state.feedbacksPerYear2020;
     const os = this.state.os;
     const smileyRange = this.state.smileys;
     const avgPerAppData = this.state.avgPerApp;
     const catDistrData = this.state.catDistr; 
 
     return (
-      <View style={[styles.container]}>
+       <View style={[styles.container]}>
         <StatusBarAdjust />
         <ScrollView
           refreshControl={
@@ -155,35 +165,21 @@ class DashboardScreen extends Component {
           showsVerticalScrollIndicator={false}
         >
           <View style={[styles.mlr10, styles.ptb10]}>
-          <IndicatorViewPager
-              style={styles.panel_Dashboard}
-              indicator={this._renderLineChartsTitleIndicator()}>
-            <View>
-              <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
+            <View style={styles.panel_Dashboard}>
+              <Text style={[styles.text_white, styles.text_bold]}>
                 Feedback amount per year
               </Text>         
-                <LineChart2019 
-                feedbacksPerYear2019={feedbacksPerYear2019} 
+                <LineChart2019
+                feedbacksPerYear={feedbacksPerYear} 
                 onListRefresh={this.state.refreshing}
                 onPullDownRefresh={this.handleRefresh} 
                 />
             </View>
-            <View>
-              <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
-                Feedback amount per year
-              </Text>         
-                <LineChart2020 
-                feedbacksPerYear2020={feedbacksPerYear2020} 
-                onListRefresh={this.state.refreshing}
-                onPullDownRefresh={this.handleRefresh} 
-                />
-            </View>
-          </IndicatorViewPager>
-          <IndicatorViewPager
-              style={styles.panel_Dashboard}
+            <IndicatorViewPager
+              style={{ height: 550 }}
               indicator={this._renderSmileyChartsTitleIndicator()}>
-            <View>
-              <Text style={[styles.text_bold, styles.titles_charts, styles.text_white]}>
+            <View style={styles.panel_Dashboard}>
+              <Text style={[styles.text_bold, styles.text_white]}>
                 Satisfaction index
               </Text>
               <PieChartWithClickSlices
@@ -192,8 +188,10 @@ class DashboardScreen extends Component {
                 onPullDownRefresh={this.handleRefresh}
               />
             </View>
-            <View>           
-                <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
+            <View style={styles.panel_Dashboard}>           
+                <Text
+                  style={[styles.text_white, styles.text_bold, styles.ptb10]}
+                >
                   Average rating per app
                 </Text>
                 <SmileysAvgPerApp
@@ -204,10 +202,10 @@ class DashboardScreen extends Component {
             </View>
             </IndicatorViewPager>
             <IndicatorViewPager
-              style={styles.panel_Dashboard}
+              style={{ height: 550 }}
               indicator={this._renderOSCatTitleIndicator()}>
-            <View>
-              <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
+            <View style={styles.panel_Dashboard}>
+              <Text style={[styles.text_white, styles.text_bold, styles.ptb10]}>
                 OS distribution
               </Text>
                 <Bar 
@@ -216,9 +214,11 @@ class DashboardScreen extends Component {
                 onPullDownRefresh={this.handleRefresh}
                 />
             </View>
-            <View>
+            <View style={styles.panel_Dashboard}>
               <View>
-                <Text style={[styles.text_white, styles.titles_charts, styles.text_bold]}>
+                <Text
+                  style={[styles.text_bold, styles.text_white, styles.ptb10]}
+                >
                   Category distribution
                 </Text>
               <CategoryDistr
