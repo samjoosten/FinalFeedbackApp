@@ -74,6 +74,15 @@ class FeedbackListScreen extends React.Component {
     this._getFeedbackAppNames();
     this._filterFeedbacks();
   }
+  // Trying this for refreshing the screen after deleting a feedback
+  // so it doesn't have to be refreshed manually
+  componentWillMount(){
+    this._subscribe = this.props.navigation.addListener('didFocus', () => {
+      this._getFeedbackData();
+      this._getFeedbackAppNames();
+      this._filterFeedbacks();
+    });
+  }
 
   componentWillUpdate() {
     if (picked == true) {
@@ -106,7 +115,7 @@ class FeedbackListScreen extends React.Component {
         ? this.state.feedbackFormFilter
         : this.state.feedbacks;
 
-    console.log("todisplay" + feedbacksToDisplay);
+    console.log("feedbacksToDisplay.length " + feedbacksToDisplay.length);
     if (feedbacksToDisplay.length > 0) {
       return (
         <View style={styles.container}>

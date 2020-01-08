@@ -267,7 +267,7 @@ class FeedbackDetailsScreen extends React.Component {
                 onPress={() =>
                   Alert.alert(
                     "Delete",
-                    "Feedback will be achived. Proceed?",
+                    "This feedback will be deleted. Proceed?",
                     [
                       {
                         text: "Cancel",
