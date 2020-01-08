@@ -12,6 +12,7 @@ import DashboardApp from "./DashboardApp";
 import FeedbackDetailsScreen from "./screens/FeedbackDetailsScreen";
 import FeedbackListScreen from "./screens/FeedbackListScreen";
 import ImageFullScreen from "./screens/ImageFullScreen";
+import RegisterAppScreen from "./screens/RegisterAppScreen";
 
 console.disableYellowBox = true;
 const AppNavigator = createStackNavigator({
