@@ -11,11 +11,20 @@ class ProfileScreen extends React.Component {
       <View style={[styles.container]}>
         <StatusBarAdjust />
         <View style={styles.btnAddPanel}>
-          <Button
-            title="Register an app"
-            style={styles.btnAddApp}
-            onPress={() => this.props.navigation.navigate("RegisterApp")}
-          />
+          <View style={styles.pb15}>
+            <Button
+              title="Register an app"
+              style={styles.btnAddApp}
+              onPress={() => this.props.navigation.navigate("RegisterApp")}
+            />
+          </View>
+          <View style={styles.pb15}>
+            <Button
+              title="Add new admin"
+              style={styles.btnAddApp}
+              onPress={() => alert("In future updates")}
+            />
+          </View>
         </View>
       </View>
     );
