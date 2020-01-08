@@ -1,6 +1,6 @@
 import {StyleSheet, Dimensions} from "react-native";
 
-let scr = Dimensions.get("window").width;
+let deviceWidth = Dimensions.get("window").width;
 let centerWidth = 0.75;
 
 export default StyleSheet.create({
@@ -9,7 +9,7 @@ export default StyleSheet.create({
         fontWeight: "bold",
         paddingLeft: 5,
         paddingTop: 10,
-        width: deviceWidth*0.25,
+        width: deviceWidth * 0.25,
         color: "#fff"
     },
     pie_chart_boxes: {
@@ -85,7 +85,7 @@ export default StyleSheet.create({
     },
     login_input: {
         backgroundColor: "white",
-        width: scr * 0.75,
+        width: deviceWidth * 0.75,
         height: 52,
         padding: 10,
         borderWidth: 1,
@@ -205,14 +205,13 @@ export default StyleSheet.create({
         color: "#fff",
         fontSize: 10,
         textTransform: "uppercase"
-
     },
     textInput: {
         height: 40,
         borderBottomColor: "#8A8F9E",
         borderBottomWidth: StyleSheet.hairlineWidth,
         fontSize: 15,
-        color: "#161F3D"
+        color: "#fff"
     },
     filterDropdown: {
         color: "#fff",
@@ -226,41 +225,64 @@ export default StyleSheet.create({
         height: 52,
         alignItems: "center",
         justifyContent: "center"
-
     },
-  p10: {
-    padding: 10
-  },
-  radius10: {
-    borderRadius: 10
-  },
-  mb15: {
-    marginBottom: 15
-  },
-  bg_white: {
-    backgroundColor: "#fff"
-  },
-  containerCenter: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  input_registerApp: {
-    width: scr * centerWidth,
-    height: 45,
-    borderWidth: 1,
-    borderColor: "#ccc",
-    marginBottom: 10,
-    backgroundColor: "#FFFFFF",
-    paddingLeft: 5,
-    borderRadius: 5
-  },
-  login_button: {
-    width: scr * centerWidth,
-    height: 52,
-    padding: 10,
-    marginBottom: 10,
-    borderRadius: 10,
-    backgroundColor: "#409eff"
-  },
+    p10: {
+        padding: 10
+    },
+    radius10: {
+        borderRadius: 10
+    },
+    mb15: {
+        marginBottom: 15
+    },
+    bg_white: {
+        backgroundColor: "#fff"
+    },
+    containerCenter: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    input_registerApp: {
+        width: deviceWidth * centerWidth,
+        height: 45,
+        borderWidth: 1,
+        borderColor: "#ccc",
+        marginBottom: 10,
+        backgroundColor: "#FFFFFF",
+        paddingLeft: 5,
+        borderRadius: 5
+    },
+    login_button: {
+        width: deviceWidth * centerWidth,
+        height: 52,
+        padding: 10,
+        marginBottom: 10,
+        borderRadius: 10,
+        backgroundColor: "#409eff"
+    },
+    modalStyle: {
+        width: "85%",
+        height: "30%",
+        marginBottom: 30,
+        shadowOffset: {width: 1, height: 3},
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+        borderRadius: 10,
+        backgroundColor: "#fff"
+    },
+    modalTitle: {
+        alignItems: "center",
+        marginHorizontal: 10
+    },
+    modalBody: {
+        height: "35%",
+        marginHorizontal: 15,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    modalFooter: {
+        alignItems: "center",
+        justifyContent: "center"
+    },
 });
