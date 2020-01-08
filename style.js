@@ -77,14 +77,6 @@ export default StyleSheet.create({
         fontSize: 16,
         marginBottom: 10
     },
-    // login_button: {
-    //     width: scr * 0.75,
-    //     height: 52,
-    //     padding: 10,
-    //     marginBottom: 10,
-    //     borderRadius: 10,
-    //     backgroundColor: "#409eff"
-    // },
     login_btnText: {
         textAlign: "center",
         textAlignVertical: "center",
