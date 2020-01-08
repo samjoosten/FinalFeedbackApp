@@ -258,7 +258,7 @@ class FeedbackDetailsScreen extends React.Component {
                     });
                   }}>
                   <Image
-                    style={{width: 150, height: 150, alignSelf: 'center'}}
+                    style={{width: 350, height: 150, alignSelf: 'center'}}
                     source={{uri: imgUrl}}
                   />
             </TouchableOpacity>
