@@ -115,7 +115,7 @@ class Template2 extends Component {
                 item.active = !item.active;
                 this.setState({
                     loadTextInput: true,
-                    featureHeader: (item.val < 6 ? 'What did you dislike?     ' : 'What did you like?     '),
+                    featureHeader: (item.val < 6 ? 'What did you dislike?' : 'What did you like?'),
                     rating: item.val
                 })
 
