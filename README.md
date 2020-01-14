@@ -6,7 +6,7 @@ yarn install
 
 ---------------
 
-Add dependencies:
+Add dependencies (if needed):
 
 yarn add rn-viewpager </br>
 yarn add victory-native </br>

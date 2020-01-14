@@ -225,6 +225,7 @@ class Template2 extends Component {
     }
 }
 
+
 const styles = StyleSheet.create({
     listHeader: {
         color: 'white',
