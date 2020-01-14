@@ -121,7 +121,7 @@ class Template2 extends Component {
 
             }}>
 
-                <Text style={{ color: 'white', fontSize: 17, fontWeight: 'bold' }}>{item.val}</Text>
+                <Text style={{ color: 'white', fontSize: 17, fontWeight: 'bold', width: 22, textAlign: 'center' }}>{item.val}</Text>
             </TouchableHighlight>
         )
     }
@@ -252,8 +252,8 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         margin: 3,
         backgroundColor: 'orange',
-        width: 50,
-        height: 50,
+        width: 60,
+        height: 60,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -261,8 +261,8 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         margin: 3,
         backgroundColor: '#e67e22',
-        width: 53,
-        height: 53,
+        width: 60,
+        height: 60,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -298,6 +298,7 @@ const styles = StyleSheet.create({
     btnText: {
         textAlign: 'center',
         fontSize: 17,
+        width: 100,
         color: 'white'
     },
 })
