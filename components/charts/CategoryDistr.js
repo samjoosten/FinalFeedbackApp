@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Text, Dimensions } from "react-native";
 import { VictoryPie } from "victory-native";
-import ajax from "../ajax";
+import ajax from "../../ajax";
 import { PropTypes } from "prop-types";
 
 const scr = Dimensions.get("window").width;

@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, Dimensions, StyleSheet, Image } from "react-native";
 import { PieChart } from "react-native-svg-charts";
 import PropTypes from "prop-types";
-import styles from "../style";
+import styles from "../../style";
 
 const deviceWidth = Dimensions.get("window").width;
 const deviceHeight = Dimensions.get("window").height;
@@ -124,7 +124,7 @@ class PieChartWithClickSlices extends React.PureComponent {
             <View style={styles.pie_chart_boxes}>
             <Image
               style={{width: 23, height: 23, marginTop: 7 }}
-              source={require('../assets/SmileyRange10.png')}  
+              source={require('../../assets/SmileyRange10.png')}  
             /> 
             <View
                     style={{
@@ -139,7 +139,7 @@ class PieChartWithClickSlices extends React.PureComponent {
             <View style={styles.pie_chart_boxes}>
             <Image
               style={{width: 20, height: 20, marginTop: 7 }}
-              source={require('../assets/SmileyRange1.png')}  
+              source={require('../../assets/SmileyRange1.png')}  
             /> 
             <View
                     style={{
