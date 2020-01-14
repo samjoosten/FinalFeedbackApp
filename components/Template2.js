@@ -41,14 +41,14 @@ class Template2 extends Component {
     componentDidMount() {
         var even = [];
         var uneven = [];
-        for (var i = 0; i < 11; i++) {
+        for (var i = 1; i < 11; i++) {
             if (i % 2 === 0) {
                 even.push({ key: i, val: i, active: false });
             } else {
                 uneven.push({ key: i, val: i, active: false });
             }
         }
-        var data = even.concat(uneven);
+        var data = uneven.concat(even);
         this.setState({
             data: data
         })
@@ -121,7 +121,7 @@ class Template2 extends Component {
 
             }}>
 
-                <Text style={{ color: 'white', fontSize: 17, fontWeight: 'bold' }}>{item.val}</Text>
+                <Text style={{ color: 'white', fontSize: 17, fontWeight: 'bold', width: 22, textAlign: 'center' }}>{item.val}</Text>
             </TouchableHighlight>
         )
     }
@@ -162,7 +162,7 @@ class Template2 extends Component {
 
     renderListHeader = () => {
         return (
-            <Text style={styles.listHeader}>Rate Our App</Text>
+            <Text style={styles.listHeader}>Rate Our App    </Text>
         )
     }
 
@@ -191,7 +191,7 @@ class Template2 extends Component {
             <KeyboardAvoidingView style={styles.container} behavior="padding">
                 <ScrollView>
                     <FlatList
-                        numColumns={6}
+                        numColumns={5}
                         horizontal={false}
                         contentContainerStyle={styles.list}
                         data={this.state.data}
@@ -224,6 +224,7 @@ class Template2 extends Component {
 
     }
 }
+
 
 const styles = StyleSheet.create({
     listHeader: {

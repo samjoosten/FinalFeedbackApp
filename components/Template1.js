@@ -54,7 +54,6 @@ class Template1 extends Component {
     };
 
     pickImage = async () => {
-        feedbackTag = Constants.makeId();
         let result = await ImagePicker.launchImageLibraryAsync({
           allowsEditing: true,
           base64: true
@@ -142,6 +141,8 @@ class Template1 extends Component {
         });
     }
     render() {
+        feedbackTag = Constants.makeId();
+
         const imageText = <Ionicons style={styles.imageIcon} name="md-attach" size={25} />;
         return (
             <View style={styles.container}>

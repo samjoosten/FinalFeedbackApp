@@ -54,6 +54,7 @@ class LineChart2019 extends React.PureComponent {
           <VictoryLabel x={5} y={30} style={{fill: "#ECEFF1", fontSize: 11, fontStyle: "italic"}} text={"Amount \nof feedbacks"}/>
             {feedbacksCount.length !== 0 ? (
               <VictoryLine
+                animate={{ duration: 2000}}
                 style={{
                   data: { stroke: "#ab34eb" },
                   parent: { border: "1px solid #ccc" }
