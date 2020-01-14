@@ -127,7 +127,7 @@ class FeedbackDetailsScreen extends React.Component {
 
     const tagID = this.props.navigation.getParam("tag");
     const imgUrl =
-      "https://res.cloudinary.com/team24icloud/image/upload/c_thumb,w_150,g_face/v1578400101/" +
+      "https://res.cloudinary.com/team24icloud/image/upload/c_thumb,w_250/v1578400101/" +
       tagID +
       ".jpg";
 
@@ -278,7 +278,7 @@ class FeedbackDetailsScreen extends React.Component {
               }}
             >
               <Image
-                style={{ width: 350, height: 150, alignSelf: "center" }}
+                style={{ width: 250, height: 150, alignSelf: "center" }}
                 source={{ uri: imgUrl }}
               />
             </TouchableOpacity>
