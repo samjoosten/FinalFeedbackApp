@@ -3,7 +3,7 @@ import { Dimensions, Platform, StyleSheet, Text, TouchableOpacity, View } from "
 
 export default class DefaultPage extends Component {
     static navigationOptions = {
-        title: 'Home',
+        title: 'Home   ',
         headerTintColor: 'white',
         headerStyle: {
             backgroundColor: '#474747',

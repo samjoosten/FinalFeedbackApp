@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {
-    Text,
-    Image,
-    View, ActivityIndicator
-} from 'react-native';
+import { View, ActivityIndicator } from 'react-native';
 
 import Template1 from './Template1'
 import Template2 from './Template2'
@@ -16,7 +12,7 @@ import Error from './errorhandling/Error'
 class Templates extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
-            title: navigation.getParam('name'),
+            title: navigation.getParam('name') + "       ",
             headerTintColor: 'white',
             headerStyle: {
                 backgroundColor: '#474747',

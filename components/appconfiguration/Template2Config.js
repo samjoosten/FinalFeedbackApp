@@ -159,7 +159,7 @@ export default class Template2Config extends Component {
 
     renderListHeader = () => {
         return (
-            <Text style={styles.listHeader}>Rate Our App</Text>
+            <Text style={styles.listHeader}>Rate Our App   </Text>
         )
     }
 
@@ -207,7 +207,7 @@ export default class Template2Config extends Component {
                         ListFooterComponent={this.renderListFooter}
                         renderItem={this.renderItem} />
                     <View style={styles.btnContainer}>
-                        <Text style={styles.listHeader}>What did you like?</Text>
+                        <Text style={styles.listHeader}>What did you like?   </Text>
                         <FlatList numColumns={2}
                             horizontal={false}
                             contentContainerStyle={styles.btnList}

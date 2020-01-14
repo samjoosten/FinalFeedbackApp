@@ -46,7 +46,7 @@ export default class Register extends Component {
     onRegister() {
         //get all data
 
-        const { appName, logoURL, template, password, password2, configCount, starConfig } = this.state;
+        const { appName, logoURL, password, password2 } = this.state;
 
         if (appName === '') {
             alert("App Name cannot be empty");

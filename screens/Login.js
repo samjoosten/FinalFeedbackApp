@@ -15,7 +15,7 @@ let scr = Dimensions.get("window").width;
 export default class Login extends Component {
   static navigationOptions = ({ navigation }) => {
     return {
-      title: "Login",
+      title: "Login   ",
       headerTintColor: "white",
       headerStyle: {
         backgroundColor: "#474747"
@@ -86,7 +86,7 @@ export default class Login extends Component {
           style={styles.loginButton}
           onPress={this.onLogin.bind(this)}
         >
-          <Text style={{ color: "#fff", fontWeight: "500" }}>Login</Text>
+          <Text style={{ color: "#fff", fontWeight: "500" }}>Login </Text>
         </TouchableHighlight>
       </KeyboardAvoidingView>
     );
