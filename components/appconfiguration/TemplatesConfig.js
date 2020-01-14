@@ -12,7 +12,7 @@ const { width, height } = Dimensions.get('window');
 export default class TemplatesConfig extends Component {
     static navigationOptions = ({ navigation }) => {
         return {
-            title: 'Choose Template   ',
+            title: 'Choose Template       ',
             headerTintColor: 'white',
             headerStyle: {
                 backgroundColor: '#474747',

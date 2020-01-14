@@ -57,6 +57,8 @@ export default class Template3Config extends Component {
     addQuestionButton() {
         var questionList = this.state.configData;
         questionList = questionList.concat(questionList.length + 1);
+
+        console.log(questionList)
         this.setState({
             configData: questionList
         })
@@ -192,6 +194,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 3,
         padding: 10,
         margin: 10,
+        color: 'white',
         fontSize: 22,
     },
     addButton: {
