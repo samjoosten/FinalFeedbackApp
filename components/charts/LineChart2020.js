@@ -7,13 +7,13 @@ import {
   VictoryTooltip,
   VictoryLabel
 } from "victory-native";
-import CustomVictoryTheme from "../theme/CustomVictoryTheme"
+import CustomVictoryTheme from "../../theme/CustomVictoryTheme"
 import { PropTypes } from "prop-types";
 import { Text, View } from "react-native";
 
-class LineChart2019 extends React.PureComponent {
+class LineChart2020 extends React.PureComponent {
   static propTypes = {
-    feedbacksPerYear2019: PropTypes.array.isRequired,
+    feedbacksPerYear2020: PropTypes.array.isRequired,
     onListRefresh: PropTypes.bool.isRequired,
     onPullDownRefresh: PropTypes.func.isRequired
   };
@@ -28,7 +28,7 @@ class LineChart2019 extends React.PureComponent {
         },
       },
     }
-    const feedbacksCount = this.props.feedbacksPerYear2019;
+    const feedbacksCount = this.props.feedbacksPerYear2020;
     const data =[
       { x: "Jan", y: feedbacksCount[0] },
       { x: "Feb", y: feedbacksCount[1] },
@@ -99,4 +99,4 @@ class LineChart2019 extends React.PureComponent {
   }
 }
 
-export default LineChart2019;
+export default LineChart2020;

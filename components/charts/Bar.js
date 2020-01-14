@@ -7,7 +7,7 @@ import {
   VictoryLabel,
   VictoryTooltip
 } from "victory-native";
-import CustomVictoryTheme from "../theme/CustomVictoryTheme"
+import CustomVictoryTheme from "../../theme/CustomVictoryTheme"
 import { View, Text } from "react-native";
 import PropTypes from "prop-types";
 

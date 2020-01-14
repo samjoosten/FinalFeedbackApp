@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import { View, Text, ScrollView, RefreshControl } from "react-native";
 import StatusBarAdjust from "../components/StatusBarAdjust";
 import styles from "../style";
-import Bar from "../components/Bar";
-import CategoryDistr from "../components/CategoryDistr";
-import SmileysAvgPerApp from "../components/SmileysAvgPerApp";
-import LineChart2020 from "../components/LineChart2020";
-import LineChart2019 from "../components/LineChart2019";
+import Bar from "../components/charts/Bar";
+import CategoryDistr from "../components/charts/CategoryDistr";
+import SmileysAvgPerApp from "../components/charts/SmileysAvgPerApp";
+import LineChart2020 from "../components/charts/LineChart2020";
+import LineChart2019 from "../components/charts/LineChart2019";
 import {
   IndicatorViewPager,
   PagerTitleIndicator,
 } from 'rn-viewpager';
 import ajax from "../ajax";
-import PieChartWithClickSlices from './../components/PieChartWithClickSlices';
+import PieChartWithClickSlices from './../components/charts/PieChartWithClickSlices';
 
 
 const apiHost = ajax.getApiHost() + "/get";
@@ -43,6 +43,8 @@ class DashboardScreen extends Component {
     this._getAvgPerApp();
     this._getCatDistr();
   }
+
+  
 
   _getCatDistr = async () => {
     await fetch(ajax.getApiHost() + "/get/catDistr", { method: "GET" })
