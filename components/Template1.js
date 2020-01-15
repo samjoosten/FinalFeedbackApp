@@ -158,19 +158,19 @@ class Template1 extends Component {
                         />
                     </View>
                     <TouchableHighlight
-                        style={[styles.button, { backgroundColor: '#006400', width: Dimensions.get('window').width/2,
+                        style={[styles.button, { backgroundColor: 'orange', width: Dimensions.get('window').width/2,
                     }]}
                         onPress={()=>this.pickImage()}
-                        underlayColor="#74b9ff">
+                        underlayColor="orange">
                         <Text style={styles.btnText}>Choose a photo</Text>
                     </TouchableHighlight>
                     <SmileSwitcher
                         smile={this.state.smile}
                         setSmiley={this.setSmiley}>
                     </SmileSwitcher>
-                    <TouchableHighlight style={[styles.button, { backgroundColor: '#0984e3' }]}
+                    <TouchableHighlight style={[styles.button, { backgroundColor: '#orange' }]}
                         onPress={this.submit}
-                        underlayColor="#74b9ff">
+                        underlayColor="#orange">
                         <Text style={styles.btnText}>Submit!</Text>
                     </TouchableHighlight>
                 </View>

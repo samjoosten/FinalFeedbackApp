@@ -33,11 +33,14 @@ export default class Smile50 extends Component {
                     maximumValue={10}
                     value={this.props.smile}
                     onValueChange={smile => this.getVal(smile)}
+                    thumbTintColor="orange"                
+                    minimumTrackTintColor= "#f78c19"
+                    
                 />
             </View>
         );
     }
-}
+}   
 
 Smile50.propTypes = {
     onNewSmiley: PropTypes.func
