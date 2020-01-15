@@ -42,14 +42,14 @@ export default class Template2Config extends Component {
     componentDidMount() {
         var even = [];
         var uneven = [];
-        for (var i = 0; i < 11; i++) {
+        for (var i = 1; i < 11; i++) {
             if (i % 2 === 0) {
                 even.push({ key: i, val: i, active: false });
             } else {
                 uneven.push({ key: i, val: i, active: false });
             }
         }
-        var data = even.concat(uneven);
+        var data = uneven.concat(even);
         this.setState({
             data: data
         })
@@ -198,7 +198,7 @@ export default class Template2Config extends Component {
             <KeyboardAvoidingView style={styles.container} behavior="padding">
                 <ScrollView>
                     <FlatList
-                        numColumns={6}
+                        numColumns={5}
                         horizontal={false}
                         contentContainerStyle={styles.list}
                         data={this.state.data}
@@ -273,8 +273,8 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         margin: 3,
         backgroundColor: 'orange',
-        width: 40,
-        height: 40,
+        width: 60,
+        height: 60,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -282,8 +282,8 @@ const styles = StyleSheet.create({
         borderRadius: 100,
         margin: 3,
         backgroundColor: '#e67e22',
-        width: 53,
-        height: 53,
+        width: 60,
+        height: 60,
         justifyContent: 'center',
         alignItems: 'center'
     },
@@ -319,6 +319,7 @@ const styles = StyleSheet.create({
     btnText: {
         textAlign: 'center',
         fontSize: 17,
+        width: 110,
         color: 'white'
     }
 })
