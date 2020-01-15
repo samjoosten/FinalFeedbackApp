@@ -29,9 +29,7 @@ class FeedbackDetailsScreen extends React.Component {
     const deletedValue = await ajax.getFeedbackToDeleteByTag(tagID);
     if (deletedValue > 0) {
       console.log("deleted");
-      this._getFeedbackDetailData();
       this.props.navigation.navigate("DashboardDomain");
-      this._getFeedbackDetailData();
     }
   };
   componentDidMount() {
