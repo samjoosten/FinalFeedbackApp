@@ -39,6 +39,10 @@ class Template1 extends Component {
         this.setImage = this.setImage.bind(this);
     }
 
+    componentDidMount(){
+        feedbackTag = Constants.makeId();
+    }
+
     //Toast messages show up when the user has succesfully sent feedback for an app.
     //This method works with OS Android only
     showToast = () => {
@@ -141,7 +145,6 @@ class Template1 extends Component {
         });
     }
     render() {
-        feedbackTag = Constants.makeId();
 
         const imageText = <Ionicons style={styles.imageIcon} name="md-attach" size={25} />;
         return (
