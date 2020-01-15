@@ -130,7 +130,7 @@ export default class Template3Config extends Component {
             <View style={{ margin: 5 }}>
                 <TextInput style={styles.txtInput}
                     placeholder={!this.basicQuestions[index] ? 'Insert your question' : this.basicQuestions[index]}
-                    value={this.state.questionConfig[index]}
+                     //{this.state.questionConfig[index]}
                     placeholderTextColor="#C3C3C3"
                     multiline={true}
                     onChangeText={(text) => this.inputChangeHandler(text, index)} />

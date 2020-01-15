@@ -140,6 +140,8 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         width: Dimensions.get('window').width - 50,
         borderRadius: 10,
+        color: 'orange',
+        backgroundColor: 'orange',
     },
     btnText: {
         textAlign: 'center',
