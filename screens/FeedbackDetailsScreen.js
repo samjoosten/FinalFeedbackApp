@@ -196,7 +196,7 @@ class FeedbackDetailsScreen extends React.Component {
               <View style={[styles.hr, styles.mt15]} />
               <View style={styles.ptb10}>
                 <Text style={styles.text_white}>
-                  <Text style={styles.text_bold}>Operation system : </Text>
+                  <Text style={styles.text_bold}>Operating system : </Text>
                   <Text style={styles.text_white_opacity}>{os}</Text>
                 </Text>
               </View>
